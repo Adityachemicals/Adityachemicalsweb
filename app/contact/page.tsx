@@ -112,6 +112,31 @@ export default async function ContactPage({ searchParams }: PageProps) {
         </div>
       </div>
 
+      {/* Manufacturing Plant Location Map */}
+      <div className="space-y-6">
+        <div className="border-b border-surface-container-highest pb-4">
+          <h2 className="text-2xl font-bold text-deep-navy uppercase tracking-wider flex items-center gap-2">
+            <span className="material-symbols-outlined text-primary select-none">location_on</span>
+            Manufacturing Plant Location
+          </h2>
+          <p className="text-on-surface-variant text-sm mt-1">
+            Ajanta Industrial Estate, Sanand, Gujarat, India
+          </p>
+        </div>
+        <div className="w-full h-[400px] rounded-[2rem] overflow-hidden border border-surface-container-highest shadow-sm bg-white">
+          <iframe
+            src="https://maps.google.com/maps?q=Ajanta%20Industrial%20Estate,%20Vasna%20Iyava,%20Sanand,%20Gujarat,%20India&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen={true}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Aditya Chemicals Manufacturing Plant Map"
+          ></iframe>
+        </div>
+      </div>
+
       {/* CTA Footer Banner */}
       <div className="bg-deep-navy text-white rounded-[3rem] p-10 md:p-16 relative overflow-hidden shadow-xl text-center md:text-left">
         <div className="absolute inset-0 opacity-10 pointer-events-none select-none">

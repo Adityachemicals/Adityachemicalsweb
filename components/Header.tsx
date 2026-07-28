@@ -9,41 +9,7 @@ import { productCategories, products } from "@/data/products";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isRegionOpen, setIsRegionOpen] = useState(false);
   const pathname = usePathname();
-
-  // Dynamic region helpers
-  let currentRegionName = "Global / India";
-  let activeRegionKey = "default";
-  if (pathname.startsWith("/us")) {
-    currentRegionName = "United States";
-    activeRegionKey = "us";
-  } else if (pathname.startsWith("/uk")) {
-    currentRegionName = "United Kingdom";
-    activeRegionKey = "uk";
-  } else if (pathname.startsWith("/eu")) {
-    currentRegionName = "Europe";
-    activeRegionKey = "eu";
-  }
-
-  const getRegionTargetPath = (targetRegion: string) => {
-    // Match dynamic product page URLs like /products/glycine or /us/products/glycine
-    const productMatch = pathname.match(/^\/(?:us|uk|eu)?\/?products\/([^/]+)$/);
-    if (productMatch) {
-      const slug = productMatch[1];
-      const product = products.find(p => p.slug === slug);
-      const hasRegional = !!product?.regionalContent;
-      
-      if (!hasRegional || targetRegion === 'default') {
-        return `/products/${slug}`;
-      }
-      return `/${targetRegion}/products/${slug}`;
-    }
-    
-    // Default to regional hub pages
-    if (targetRegion === 'default') return '/';
-    return `/${targetRegion}`;
-  };
 
   return (
     <header className="sticky top-0 z-50 flex justify-between items-center px-gutter py-4 bg-white/70 backdrop-blur-xl border border-glass-stroke rounded-full mt-3 md:mt-4 mx-auto w-[90%] max-w-container-max shadow-sm transition-all duration-300 ease-in-out">
@@ -180,62 +146,8 @@ export default function Header() {
         })}
       </nav>
 
-      {/* Desktop Brochure & Region Switcher */}
+      {/* Desktop Brochure */}
       <div className="hidden xl:flex items-center gap-4">
-        {/* Region Switcher (Step 7) */}
-        <div className="relative">
-          <button
-            onClick={() => setIsRegionOpen(!isRegionOpen)}
-            className="flex items-center gap-2 px-4 py-2.5 border border-glass-stroke bg-white hover:bg-surface-container-low transition-colors duration-200 rounded-full text-xs font-bold text-deep-navy cursor-pointer select-none"
-          >
-            <span className="material-symbols-outlined text-base">public</span>
-            {currentRegionName}
-            <span className="material-symbols-outlined text-xs select-none">
-              keyboard_arrow_down
-            </span>
-          </button>
-          {isRegionOpen && (
-            <div className="absolute right-0 top-full mt-2 bg-white border border-surface-container-highest shadow-2xl rounded-2xl p-2 w-48 flex flex-col gap-1 z-50">
-              <Link
-                href={getRegionTargetPath('default')}
-                onClick={() => setIsRegionOpen(false)}
-                className={`px-4 py-2.5 text-xs font-bold text-left rounded-xl transition-colors ${
-                  activeRegionKey === 'default' ? 'bg-primary/10 text-primary' : 'text-on-surface-variant hover:bg-surface-container-low'
-                }`}
-              >
-                Global / India
-              </Link>
-              <Link
-                href={getRegionTargetPath('us')}
-                onClick={() => setIsRegionOpen(false)}
-                className={`px-4 py-2.5 text-xs font-bold text-left rounded-xl transition-colors ${
-                  activeRegionKey === 'us' ? 'bg-primary/10 text-primary' : 'text-on-surface-variant hover:bg-surface-container-low'
-                }`}
-              >
-                United States
-              </Link>
-              <Link
-                href={getRegionTargetPath('uk')}
-                onClick={() => setIsRegionOpen(false)}
-                className={`px-4 py-2.5 text-xs font-bold text-left rounded-xl transition-colors ${
-                  activeRegionKey === 'uk' ? 'bg-primary/10 text-primary' : 'text-on-surface-variant hover:bg-surface-container-low'
-                }`}
-              >
-                United Kingdom
-              </Link>
-              <Link
-                href={getRegionTargetPath('eu')}
-                onClick={() => setIsRegionOpen(false)}
-                className={`px-4 py-2.5 text-xs font-bold text-left rounded-xl transition-colors ${
-                  activeRegionKey === 'eu' ? 'bg-primary/10 text-primary' : 'text-on-surface-variant hover:bg-surface-container-low'
-                }`}
-              >
-                Europe
-              </Link>
-            </div>
-          )}
-        </div>
-
         <a href="/IFT_Brochure.pdf" download="IFT_Brochure.pdf" target="_blank">
           <button className="font-button text-button uppercase px-8 py-3 bg-primary text-white rounded-full hover:scale-[0.98] transition-all duration-200 shadow-md cursor-pointer tracking-wider font-bold">
             Brochure
@@ -257,49 +169,6 @@ export default function Header() {
       {/* Mobile Nav dropdown */}
       {isOpen && (
         <div className="absolute top-[75px] left-0 right-0 mx-auto w-full bg-white border border-glass-stroke rounded-2xl shadow-xl p-6 flex flex-col gap-4 xl:hidden z-50">
-          {/* Mobile Region Switcher (Step 7) */}
-          <div className="flex flex-col gap-2 border-b border-surface-container-highest pb-3">
-            <span className="text-[10px] uppercase font-bold text-on-surface-variant/80 tracking-wider">Select Region</span>
-            <div className="grid grid-cols-2 gap-2 mt-1">
-              <Link
-                href={getRegionTargetPath('default')}
-                onClick={() => setIsOpen(false)}
-                className={`px-3 py-2 text-center text-xs font-bold rounded-xl border border-glass-stroke transition-all ${
-                  activeRegionKey === 'default' ? 'bg-primary text-white border-primary' : 'bg-surface-container-low text-on-surface-variant'
-                }`}
-              >
-                Global / India
-              </Link>
-              <Link
-                href={getRegionTargetPath('us')}
-                onClick={() => setIsOpen(false)}
-                className={`px-3 py-2 text-center text-xs font-bold rounded-xl border border-glass-stroke transition-all ${
-                  activeRegionKey === 'us' ? 'bg-primary text-white border-primary' : 'bg-surface-container-low text-on-surface-variant'
-                }`}
-              >
-                United States
-              </Link>
-              <Link
-                href={getRegionTargetPath('uk')}
-                onClick={() => setIsOpen(false)}
-                className={`px-3 py-2 text-center text-xs font-bold rounded-xl border border-glass-stroke transition-all ${
-                  activeRegionKey === 'uk' ? 'bg-primary text-white border-primary' : 'bg-surface-container-low text-on-surface-variant'
-                }`}
-              >
-                United Kingdom
-              </Link>
-              <Link
-                href={getRegionTargetPath('eu')}
-                onClick={() => setIsOpen(false)}
-                className={`px-3 py-2 text-center text-xs font-bold rounded-xl border border-glass-stroke transition-all ${
-                  activeRegionKey === 'eu' ? 'bg-primary text-white border-primary' : 'bg-surface-container-low text-on-surface-variant'
-                }`}
-              >
-                Europe
-              </Link>
-            </div>
-          </div>
-
           {headerNavItems.map((item) => {
             const isActive = pathname === item.href;
             if (item.name === "Products") {
