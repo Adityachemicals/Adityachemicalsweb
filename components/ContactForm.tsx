@@ -16,11 +16,34 @@ export default function ContactForm({ initialProduct }: ContactFormProps) {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate form submission to backend/CRM
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit inquiry");
+      }
+
+      setSubmitted(true);
+    } catch (err: any) {
+      console.error(err);
+      setError("An error occurred while sending your inquiry. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -130,15 +153,29 @@ export default function ContactForm({ initialProduct }: ContactFormProps) {
           placeholder="Please describe your volume requirements, specifications needed, or sample requests here..."
           value={formData.message}
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-          className="px-4 py-3 rounded-xl border border-surface-container-highest focus:outline-none focus:border-primary text-sm bg-surface-container-lowest resize-none"
+          className="px-4 py-3 rounded-lg border border-surface-container-highest focus:outline-none focus:border-primary text-sm bg-surface-container-lowest resize-none"
         ></textarea>
       </div>
 
+      {error && (
+        <div className="p-4 bg-red-50 text-red-600 rounded-xl text-sm font-medium border border-red-100">
+          {error}
+        </div>
+      )}
+
       <button
         type="submit"
-        className="w-full py-4 bg-vibrant-azure hover:bg-primary text-white rounded-full font-button text-button uppercase shadow transition-colors cursor-pointer text-center"
+        disabled={isSubmitting}
+        className="w-full py-4 bg-vibrant-azure hover:bg-primary text-white rounded-full font-button text-button uppercase shadow transition-colors cursor-pointer text-center disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
       >
-        Submit Inquiry
+        {isSubmitting ? (
+          <>
+            <span className="material-symbols-outlined animate-spin">refresh</span>
+            Submitting...
+          </>
+        ) : (
+          "Submit Inquiry"
+        )}
       </button>
     </form>
   );
