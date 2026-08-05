@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Manrope, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import AnnouncementBanner from "@/components/AnnouncementBanner";
 import Footer from "@/components/Footer";
 import Script from "next/script";
 
@@ -75,6 +76,7 @@ export default function RootLayout({
             gtag('config', 'G-GA4_MEASUREMENT_ID_PLACEHOLDER');
           `}
         </Script>
+        <AnnouncementBanner />
         <Header />
         <main className="flex-grow">{children}</main>
         <Footer />
