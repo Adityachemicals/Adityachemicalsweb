@@ -16,7 +16,7 @@ export default function Hero() {
             Global Impact.
           </h1>
           <p className="font-body-lg text-on-surface-variant max-w-xl">
-            A premier API & mineral chemical manufacturing company supplying the USA, UK, and European markets since 1992. Operating with FDA registration, REACH compliance, and localized US warehousing in Boca Raton, Florida.
+            A premier API & mineral chemical manufacturing company supplying the USA, UK, and European markets since 1992. Operating with FDA registration, and localized US warehousing in Boca Raton, Florida.
           </p>
           <div className="flex flex-wrap gap-4 pt-2">
             <Link href="/contact">
