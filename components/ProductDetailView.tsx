@@ -765,24 +765,32 @@ export default function ProductDetailView({ product, parentCat, subCat, region }
             </div>
             {/* Compliance Badges Container */}
             <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 pt-2">
-              <div className="flex flex-col items-center space-y-1 select-none">
-                <div className="w-12 h-12 rounded-full bg-white border border-surface-container-highest flex items-center justify-center text-primary text-xs font-black shadow-sm">GMP</div>
+              <div className="flex flex-col items-center space-y-1 select-none hover:-translate-y-1 transition-transform duration-300">
+                <div className="w-14 h-14 relative flex items-center justify-center">
+                  <Image src="/logo-gmp.png" alt="GMP Certified" fill className="object-contain" />
+                </div>
                 <span className="text-[9px] font-bold text-on-surface-variant uppercase">Certified</span>
               </div>
-              <div className="flex flex-col items-center space-y-1 select-none">
-                <div className="w-12 h-12 rounded-full bg-white border border-surface-container-highest flex items-center justify-center text-primary text-xs font-black shadow-sm">ISO</div>
+              <div className="flex flex-col items-center space-y-1 select-none hover:-translate-y-1 transition-transform duration-300">
+                <div className="w-14 h-14 relative flex items-center justify-center">
+                  <Image src="/ISO-logo.png" alt="ISO 9001:2015" fill className="object-contain" />
+                </div>
                 <span className="text-[9px] font-bold text-on-surface-variant uppercase">9001:2015</span>
               </div>
-              <div className="flex flex-col items-center space-y-1 select-none">
-                <div className="w-12 h-12 rounded-full bg-white border border-surface-container-highest flex items-center justify-center text-primary text-xs font-black shadow-sm">HALAL</div>
+              <div className="flex flex-col items-center space-y-1 select-none hover:-translate-y-1 transition-transform duration-300">
+                <div className="w-14 h-14 relative flex items-center justify-center">
+                  <Image src="/logo-halal.avif" alt="Halal Certified" fill className="object-contain" />
+                </div>
                 <span className="text-[9px] font-bold text-on-surface-variant uppercase">Certified</span>
               </div>
-              <div className="flex flex-col items-center space-y-1 select-none">
+              <div className="flex flex-col items-center space-y-1 select-none hover:-translate-y-1 transition-transform duration-300">
                 <div className="w-12 h-12 rounded-full bg-white border border-surface-container-highest flex items-center justify-center text-primary text-xs font-black shadow-sm">KOSHER</div>
                 <span className="text-[9px] font-bold text-on-surface-variant uppercase">Certified</span>
               </div>
-              <div className="flex flex-col items-center space-y-1 select-none">
-                <div className="w-12 h-12 rounded-full bg-white border border-surface-container-highest flex items-center justify-center text-primary text-[10px] font-black shadow-sm tracking-tighter">FSSC</div>
+              <div className="flex flex-col items-center space-y-1 select-none hover:-translate-y-1 transition-transform duration-300">
+                <div className="w-16 h-14 relative flex items-center justify-center">
+                  <Image src="/logo-fssc.svg" alt="FSSC 22000" fill className="object-contain" />
+                </div>
                 <span className="text-[9px] font-bold text-on-surface-variant uppercase">22000</span>
               </div>
             </div>
