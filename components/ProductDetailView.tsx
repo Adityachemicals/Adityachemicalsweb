@@ -271,10 +271,10 @@ export default function ProductDetailView({ product, parentCat, subCat, region }
           </nav>
 
           {/* Hero Content Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
             {/* Left Content Column */}
-            <div className="lg:col-span-7 space-y-6">
+            <div className="lg:col-span-8 space-y-6">
               <span className="inline-block px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full text-xs font-bold uppercase tracking-wider">
                 {product.categoryTag}
               </span>
@@ -396,43 +396,39 @@ export default function ProductDetailView({ product, parentCat, subCat, region }
               )}
             </div>
 
-            {/* Right Product Image & Stats Column */}
-            <div className="lg:col-span-5 flex flex-col items-center justify-center space-y-6">
-
-              {/* Product Packshot Container */}
-              <div className="relative w-full h-[320px] md:h-[400px] bg-white rounded-[2.5rem] overflow-hidden border border-surface-container-highest shadow-sm p-4 flex items-center justify-center group">
-                <div className="absolute inset-0 bg-gradient-to-tr from-surface-container-low/[0.05] to-transparent pointer-events-none" />
-                <div className="absolute w-[200px] h-[200px] rounded-full bg-primary/5 blur-[60px] pointer-events-none z-0" />
-                <Image
-                  src={product.imagePath}
-                  alt={product.name}
-                  fill
-                  className="object-contain p-8 transition-transform duration-500 group-hover:scale-[1.03] relative z-10"
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                  priority
-                />
-              </div>
-
-              {/* Specifications Grid Stats Bar */}
-              <div className="w-full bg-surface-container-low/60 border border-surface-container-highest/60 rounded-3xl p-4 md:p-6 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center shadow-sm">
-                <div className="space-y-1">
-                  <span className="block text-[10px] uppercase tracking-wider text-on-surface-variant/80 font-semibold">CAS Registry No.</span>
-                  <span className="text-sm md:text-base font-bold text-deep-navy font-mono block">{product.casNumber}</span>
-                </div>
-                <div className="space-y-1">
-                  <span className="block text-[10px] uppercase tracking-wider text-on-surface-variant/80 font-semibold">Formula</span>
-                  <span className="text-sm md:text-base font-bold text-deep-navy font-mono block">{product.details?.formula || "N/A"}</span>
-                </div>
-                <div className="space-y-1">
-                  <span className="block text-[10px] uppercase tracking-wider text-on-surface-variant/80 font-semibold">Molecular Wt.</span>
-                  <span className="text-sm md:text-base font-bold text-deep-navy font-mono block">{product.details?.weight || "N/A"}</span>
-                </div>
-                <div className="space-y-1">
-                  <span className="block text-[10px] uppercase tracking-wider text-on-surface-variant/80 font-semibold">Grades</span>
-                  <span className="text-xs md:text-sm font-bold text-primary leading-tight block">{product.details?.grade || "Technical"}</span>
+            {/* Right Stats Column */}
+            <div className="lg:col-span-4 flex flex-col space-y-6">
+              <div className="w-full bg-surface-container-low/60 border border-surface-container-highest/60 rounded-3xl p-6 md:p-8 flex flex-col gap-6 shadow-sm">
+                <h3 className="text-sm font-bold text-deep-navy border-b border-surface-container-highest/60 pb-3 select-none uppercase tracking-wider">
+                  Quick Facts
+                </h3>
+                <div className="flex flex-col gap-4 text-left">
+                  {product.casNumber && (
+                    <div className="space-y-1">
+                      <span className="block text-[10px] uppercase tracking-wider text-on-surface-variant/80 font-semibold">CAS Registry No.</span>
+                      <span className="text-sm font-bold text-deep-navy font-mono block">{product.casNumber}</span>
+                    </div>
+                  )}
+                  {product.details?.formula && (
+                    <div className="space-y-1">
+                      <span className="block text-[10px] uppercase tracking-wider text-on-surface-variant/80 font-semibold">Formula</span>
+                      <span className="text-sm font-bold text-deep-navy font-mono block">{product.details.formula}</span>
+                    </div>
+                  )}
+                  {product.details?.weight && (
+                    <div className="space-y-1">
+                      <span className="block text-[10px] uppercase tracking-wider text-on-surface-variant/80 font-semibold">Molecular Wt.</span>
+                      <span className="text-sm font-bold text-deep-navy font-mono block">{product.details.weight}</span>
+                    </div>
+                  )}
+                  {product.details?.grade && (
+                    <div className="space-y-1">
+                      <span className="block text-[10px] uppercase tracking-wider text-on-surface-variant/80 font-semibold">Grades</span>
+                      <span className="text-sm font-bold text-primary leading-tight block">{product.details.grade}</span>
+                    </div>
+                  )}
                 </div>
               </div>
-
             </div>
 
           </div>
@@ -443,37 +439,11 @@ export default function ProductDetailView({ product, parentCat, subCat, region }
       <div className="w-full bg-background py-16">
         <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop space-y-16">
 
-          {/* Section 1: Chemical Structure & Identity Bento Panel */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-
-            {/* Chemical Structure Card */}
-            {product.slug !== "calcium-glycerophosphate" && product.slug !== "dl-methionine-2" && (
-              <div className="lg:col-span-6 bg-white rounded-[2rem] p-6 md:p-8 border border-surface-container-highest shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between space-y-4">
-                <h3 className="text-lg font-bold text-deep-navy border-b border-surface-container-highest pb-2 select-none uppercase tracking-wider">
-                  Chemical Structure
-                </h3>
-                <GenericMolecularStructure formula={product.details?.formula} />
-              </div>
-            )}
-            {product.slug === "dl-methionine-2" && (
-              <div className="lg:col-span-6 bg-white rounded-[2rem] p-6 md:p-8 border border-surface-container-highest shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between space-y-4 relative">
-                <h3 className="text-lg font-bold text-deep-navy border-b border-surface-container-highest pb-2 select-none uppercase tracking-wider">
-                  Chemical Structure
-                </h3>
-                <DLMethionineStructure />
-              </div>
-            )}
-            {product.slug === "calcium-glycerophosphate" && (
-              <div className="lg:col-span-6 bg-white rounded-[2rem] p-6 md:p-8 border border-surface-container-highest shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between space-y-4">
-                <h3 className="text-lg font-bold text-deep-navy border-b border-surface-container-highest pb-2 select-none uppercase tracking-wider">
-                  Chemical Structure
-                </h3>
-                <CalciumGlycerophosphateStructure />
-              </div>
-            )}
+          {/* Section 1: Chemical Identity Panel */}
+          <div className="grid grid-cols-1 gap-8 items-stretch max-w-4xl mx-auto">
 
             {/* Chemical Identity Card */}
-            <div className="lg:col-span-6 bg-white rounded-[2rem] p-6 md:p-8 border border-surface-container-highest shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between space-y-6">
+            <div className="w-full bg-white rounded-[2rem] p-6 md:p-8 border border-surface-container-highest shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between space-y-6">
               <div>
                 <h3 className="text-lg font-bold text-deep-navy border-b border-surface-container-highest pb-2 select-none uppercase tracking-wider">
                   Chemical Identity
@@ -496,10 +466,18 @@ export default function ProductDetailView({ product, parentCat, subCat, region }
                         <td className="py-3.5 text-on-surface-variant font-medium">{product.details.weight}</td>
                       </tr>
                     )}
-                    <tr className="border-b border-surface-container-highest/60">
-                      <td className="py-3.5 font-semibold text-deep-navy uppercase">CAS Registry No.</td>
-                      <td className="py-3.5 text-on-surface-variant font-mono font-bold">{product.casNumber}</td>
-                    </tr>
+                    {product.specifications?.iupacName && (
+                      <tr className="border-b border-surface-container-highest/60">
+                        <td className="py-3.5 font-semibold text-deep-navy uppercase">IUPAC Name</td>
+                        <td className="py-3.5 text-on-surface-variant font-medium">{product.specifications.iupacName}</td>
+                      </tr>
+                    )}
+                    {product.casNumber && (
+                      <tr className="border-b border-surface-container-highest/60">
+                        <td className="py-3.5 font-semibold text-deep-navy uppercase">CAS Registry No.</td>
+                        <td className="py-3.5 text-on-surface-variant font-mono font-bold">{product.casNumber}</td>
+                      </tr>
+                    )}
                     {product.slug === "calcium-glycerophosphate" && (
                       <tr className="border-b border-surface-container-highest/60">
                         <td className="py-3.5 font-semibold text-deep-navy uppercase">EC / EINECS No.</td>
@@ -580,7 +558,7 @@ export default function ProductDetailView({ product, parentCat, subCat, region }
             {/* Technical Specifications Table Column */}
             <div className="lg:col-span-6 bg-white rounded-[2rem] p-6 md:p-8 border border-surface-container-highest shadow-sm hover:shadow-md transition-shadow duration-300 space-y-6">
               <h2 className="text-xl font-bold text-deep-navy border-b border-surface-container-highest pb-2 select-none uppercase tracking-wider">
-                Technical Specifications
+                {product.slug === "zinc-monomethionine" ? "Physicochemical Properties" : "Technical Specifications"}
               </h2>
               <table className="w-full text-xs md:text-sm text-left border-collapse">
                 <thead>
@@ -594,6 +572,18 @@ export default function ProductDetailView({ product, parentCat, subCat, region }
                     <tr className="border-b border-surface-container-highest/60">
                       <td className="py-3 font-semibold text-deep-navy">Appearance</td>
                       <td className="py-3 text-on-surface-variant leading-relaxed">{product.specifications.physicalForm}</td>
+                    </tr>
+                  )}
+                  {product.specifications?.zincContent && (
+                    <tr className="border-b border-surface-container-highest/60">
+                      <td className="py-3 font-semibold text-deep-navy">Zinc Content</td>
+                      <td className="py-3 text-on-surface-variant leading-relaxed">{product.specifications.zincContent}</td>
+                    </tr>
+                  )}
+                  {product.specifications?.methionineContent && (
+                    <tr className="border-b border-surface-container-highest/60">
+                      <td className="py-3 font-semibold text-deep-navy">Methionine Content</td>
+                      <td className="py-3 text-on-surface-variant leading-relaxed">{product.specifications.methionineContent}</td>
                     </tr>
                   )}
                   {product.specifications?.assay && (
@@ -665,101 +655,103 @@ export default function ProductDetailView({ product, parentCat, subCat, region }
           </div>
 
           {/* Section 3: Physical Properties & Target Applications split */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {product.slug !== "zinc-monomethionine" && (
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
-            {/* Properties Column */}
-            <div className="lg:col-span-5 bg-white rounded-[2rem] p-6 md:p-8 border border-surface-container-highest shadow-sm hover:shadow-md transition-shadow duration-300 space-y-6">
-              <h2 className="text-xl font-bold text-deep-navy border-b border-surface-container-highest pb-2 select-none uppercase tracking-wider">
-                Physical & Chemical Properties
-              </h2>
-              <table className="w-full text-xs md:text-sm text-left border-collapse">
-                <thead>
-                  <tr className="border-b border-surface-container-highest font-bold text-deep-navy">
-                    <th className="py-2.5 uppercase w-[40%]">Property</th>
-                    <th className="py-2.5 uppercase">Details</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="border-b border-surface-container-highest/60">
-                    <td className="py-3 font-semibold text-deep-navy">Physical Form</td>
-                    <td className="py-3 text-on-surface-variant">{product.specifications?.physicalForm || "White powder"}</td>
-                  </tr>
-                  <tr className="border-b border-surface-container-highest/60">
-                    <td className="py-3 font-semibold text-deep-navy">Odor</td>
-                    <td className="py-3 text-on-surface-variant">{product.slug === "dl-methionine-2" ? "Odorless, or with a faint characteristic odor" : "Odorless"}</td>
-                  </tr>
-                  <tr className="border-b border-surface-container-highest/60">
-                    <td className="py-3 font-semibold text-deep-navy">Taste</td>
-                    <td className="py-3 text-on-surface-variant">{product.slug === "dl-methionine-2" ? "Slightly bitter to bland" : "Slightly saline / bland"}</td>
-                  </tr>
-                  {product.slug === "calcium-glycerophosphate" && (
-                    <>
-                      <tr className="border-b border-surface-container-highest/60">
-                        <td className="py-3 font-semibold text-deep-navy">Melting Point</td>
-                        <td className="py-3 text-on-surface-variant">Decomposes</td>
-                      </tr>
-                      <tr className="border-b border-surface-container-highest/60">
-                        <td className="py-3 font-semibold text-deep-navy">Bulk Density</td>
-                        <td className="py-3 text-on-surface-variant">0.4 – 0.7 g/mL (approx.)</td>
-                      </tr>
-                      <tr className="border-b border-surface-container-highest/60">
-                        <td className="py-3 font-semibold text-deep-navy">Particle Size</td>
-                        <td className="py-3 text-on-surface-variant">90% through 100 mesh</td>
-                      </tr>
-                    </>
-                  )}
-                  <tr>
-                    <td className="py-3 font-semibold text-deep-navy">Solubility Info</td>
-                    <td className="py-3 text-on-surface-variant leading-relaxed">{product.specifications?.solubility ? "Sparingly soluble in water, insoluble in ethanol" : "Available upon request"}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            {/* Applications Column */}
-            {product.applications && product.applications.length > 0 && (
-              <div className="lg:col-span-7 space-y-4">
+              {/* Properties Column */}
+              <div className="lg:col-span-5 bg-white rounded-[2rem] p-6 md:p-8 border border-surface-container-highest shadow-sm hover:shadow-md transition-shadow duration-300 space-y-6">
                 <h2 className="text-xl font-bold text-deep-navy border-b border-surface-container-highest pb-2 select-none uppercase tracking-wider">
-                  Target Applications
+                  Physical & Chemical Properties
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {product.applications.map((app, idx) => {
-                    const parts = app.split(': ', 2);
-
-                    // Dynamically assign an icon for visual elegance
-                    let appIcon = "manufacturing";
-                    const lowerName = parts[0].toLowerCase();
-                    if (lowerName.includes("supplement") || lowerName.includes("nutraceutical")) appIcon = "pill";
-                    else if (lowerName.includes("sport") || lowerName.includes("nutrition")) appIcon = "fitness_center";
-                    else if (lowerName.includes("pharmaceutical")) appIcon = "medical_services";
-                    else if (lowerName.includes("food") || lowerName.includes("beverage")) appIcon = "restaurant";
-                    else if (lowerName.includes("clinical") || lowerName.includes("medical")) appIcon = "clinical_notes";
-                    else if (lowerName.includes("oral") || lowerName.includes("dental")) appIcon = "dentistry";
-                    else if (lowerName.includes("bone") || lowerName.includes("skeletal")) appIcon = "bone";
-                    else if (lowerName.includes("animal") || lowerName.includes("feed") || lowerName.includes("poultry")) appIcon = "grain";
-                    else if (lowerName.includes("cosmetic") || lowerName.includes("personal care")) appIcon = "science";
-
-                    return (
-                      <div key={idx} className="bg-white p-5 rounded-2xl border border-surface-container-highest shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 space-y-2 flex flex-col justify-start">
-                        <div className="flex items-center gap-2">
-                          <span className="material-symbols-outlined text-primary text-xl select-none">
-                            {appIcon}
-                          </span>
-                          <h3 className="font-bold text-deep-navy text-sm leading-snug">
-                            {parts.length === 2 ? parts[0] : "Application Area"}
-                          </h3>
-                        </div>
-                        <p className="text-xs text-on-surface-variant leading-relaxed">
-                          {parts.length === 2 ? parts[1] : app}
-                        </p>
-                      </div>
-                    );
-                  })}
-                </div>
+                <table className="w-full text-xs md:text-sm text-left border-collapse">
+                  <thead>
+                    <tr className="border-b border-surface-container-highest font-bold text-deep-navy">
+                      <th className="py-2.5 uppercase w-[40%]">Property</th>
+                      <th className="py-2.5 uppercase">Details</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="border-b border-surface-container-highest/60">
+                      <td className="py-3 font-semibold text-deep-navy">Physical Form</td>
+                      <td className="py-3 text-on-surface-variant">{product.specifications?.physicalForm || "White powder"}</td>
+                    </tr>
+                    <tr className="border-b border-surface-container-highest/60">
+                      <td className="py-3 font-semibold text-deep-navy">Odor</td>
+                      <td className="py-3 text-on-surface-variant">{product.slug === "dl-methionine-2" ? "Odorless, or with a faint characteristic odor" : "Odorless"}</td>
+                    </tr>
+                    <tr className="border-b border-surface-container-highest/60">
+                      <td className="py-3 font-semibold text-deep-navy">Taste</td>
+                      <td className="py-3 text-on-surface-variant">{product.slug === "dl-methionine-2" ? "Slightly bitter to bland" : "Slightly saline / bland"}</td>
+                    </tr>
+                    {product.slug === "calcium-glycerophosphate" && (
+                      <>
+                        <tr className="border-b border-surface-container-highest/60">
+                          <td className="py-3 font-semibold text-deep-navy">Melting Point</td>
+                          <td className="py-3 text-on-surface-variant">Decomposes</td>
+                        </tr>
+                        <tr className="border-b border-surface-container-highest/60">
+                          <td className="py-3 font-semibold text-deep-navy">Bulk Density</td>
+                          <td className="py-3 text-on-surface-variant">0.4 – 0.7 g/mL (approx.)</td>
+                        </tr>
+                        <tr className="border-b border-surface-container-highest/60">
+                          <td className="py-3 font-semibold text-deep-navy">Particle Size</td>
+                          <td className="py-3 text-on-surface-variant">90% through 100 mesh</td>
+                        </tr>
+                      </>
+                    )}
+                    <tr>
+                      <td className="py-3 font-semibold text-deep-navy">Solubility Info</td>
+                      <td className="py-3 text-on-surface-variant leading-relaxed">{product.specifications?.solubility ? "Sparingly soluble in water, insoluble in ethanol" : "Available upon request"}</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-            )}
 
-          </div>
+              {/* Applications Column */}
+              {product.applications && product.applications.length > 0 && (
+                <div className="lg:col-span-7 space-y-4">
+                  <h2 className="text-xl font-bold text-deep-navy border-b border-surface-container-highest pb-2 select-none uppercase tracking-wider">
+                    Target Applications
+                  </h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {product.applications.map((app, idx) => {
+                      const parts = app.split(': ', 2);
+
+                      // Dynamically assign an icon for visual elegance
+                      let appIcon = "manufacturing";
+                      const lowerName = parts[0].toLowerCase();
+                      if (lowerName.includes("supplement") || lowerName.includes("nutraceutical")) appIcon = "pill";
+                      else if (lowerName.includes("sport") || lowerName.includes("nutrition")) appIcon = "fitness_center";
+                      else if (lowerName.includes("pharmaceutical")) appIcon = "medical_services";
+                      else if (lowerName.includes("food") || lowerName.includes("beverage")) appIcon = "restaurant";
+                      else if (lowerName.includes("clinical") || lowerName.includes("medical")) appIcon = "clinical_notes";
+                      else if (lowerName.includes("oral") || lowerName.includes("dental")) appIcon = "dentistry";
+                      else if (lowerName.includes("bone") || lowerName.includes("skeletal")) appIcon = "bone";
+                      else if (lowerName.includes("animal") || lowerName.includes("feed") || lowerName.includes("poultry")) appIcon = "grain";
+                      else if (lowerName.includes("cosmetic") || lowerName.includes("personal care")) appIcon = "science";
+
+                      return (
+                        <div key={idx} className="bg-white p-5 rounded-2xl border border-surface-container-highest shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 space-y-2 flex flex-col justify-start">
+                          <div className="flex items-center gap-2">
+                            <span className="material-symbols-outlined text-primary text-xl select-none">
+                              {appIcon}
+                            </span>
+                            <h3 className="font-bold text-deep-navy text-sm leading-snug">
+                              {parts.length === 2 ? parts[0] : "Application Area"}
+                            </h3>
+                          </div>
+                          <p className="text-xs text-on-surface-variant leading-relaxed">
+                            {parts.length === 2 ? parts[1] : app}
+                          </p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
+            </div>
+          )}
 
           {/* Section 4: Quality & Regulatory Compliance Banner */}
           <div className="bg-surface-container-low rounded-[2rem] p-8 md:p-10 border border-surface-container-highest flex flex-col items-center justify-center space-y-6 text-center shadow-inner">

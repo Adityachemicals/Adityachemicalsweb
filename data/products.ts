@@ -1703,15 +1703,31 @@ export const products: Product[] = [
   {
     "name": "Zinc Monomethionine",
     "slug": "zinc-monomethionine",
-    "casNumber": "56329-42-1",
+    "casNumber": "",
     "categoryTag": "Zinc (Chelated Minerals)",
     "parentCategorySlug": "minerals",
     "subCategorySlug": "zinc",
     "imagePath": "/aditya chemicals images/Zinc/product card/Zinc Bis Glycinate.png",
-    "description": "Zinc L-Carnosine Zinc Lactate Zinc L-Pidolate Zinc Orotate Potassium Magnesium Citrate Potassium Bis Glycinate Potassium Gluconate Potassium Citrate Potassium Magnesium Aspartate Creatine Malate Creatine Citrate Creatine Gluconate Creatine Orotate Calcium L-5 Methyltetrahydrofolate Riboflavin Sodium 5 - Phosphate Ferrous Asparto Glycinate Ferrous L-Pidolate Ferrous Bis Glycinate Ferrous Gluconate Ferrous Lactate Sodium Ferric EDTA Copper Bis Glycinate Copper Gluconate Manganese Bis Glycinate Manganese Gluconate Disodium Edetate Tetrasodium Edetate Boron Citrate Boron Glycinate",
-    "details": {},
-    "specifications": {},
-    "features": [],
+    "description": "Aditya Chemicals produces premium-grade Zinc Monomethionine, a highly bioavailable chelate that combines elemental zinc with the amino acid L-methionine. It is widely used in nutraceuticals, sports nutrition, and immune-support formulations.",
+    "details": {
+      "formula": "C5H10NO2SZn",
+      "weight": "213.6 g/mol",
+      "shelfLife": "5 years"
+    },
+    "specifications": {
+      "iupacName": "Zinc (2S)-2-amino-4-methylsulfanylbutanoate",
+      "physicalForm": "White crystalline, free-flowing powder.",
+      "zincContent": "NLT 20.0% w/w and NMT 22.1% w/w. (On dried basis)",
+      "methionineContent": "NLT 40.0% w/w and NMT 45.0% w/w. (On dried basis)",
+      "storage": "Store in a well-closed container."
+    },
+    "features": [
+      "Targeted L-Methionine Transport Pathway: Because zinc is chemically bound to methionine, the body absorbs the complex via specialized amino acid transporters instead of crowded mineral pathways, delivering optimal physiological absorption and cellular retention.",
+      "Exceptional Gastrointestinal Comfort: The molecular stability of the chelate prevents the premature dissociation of free zinc ions in stomach acid, eliminating the nausea, cramping, and metallic reflux typical of standard mineral options.",
+      "Excellent Free-Flow Crystalline Purity: The API maintains a highly uniform, free-flowing crystalline structure that resists room-temperature moisture clumping, ensuring seamless handling and processing during manufacturing.",
+      "Acne & Inflammation Management: This compound is ideal for prescription-grade dermatological tablets targeting severe acne, tissue repair, and chronic wound healing by efficiently supporting natural collagen synthesis.",
+      "Orally Disintegrating Tablets (ODTs) & Melts: The mild, non-metallic profile of this chelate requires minimal flavor-masking, making it perfect for smooth, consumer-friendly chewable tablets, melts, and therapeutic throat lozenges."
+    ],
     "applications": []
   },
   {
