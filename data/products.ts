@@ -19,6 +19,8 @@ export interface Product {
     physicalForm?: string;
     assay?: string;
     storage?: string;
+    zincContent?: string;
+    methionineContent?: string;
   };
   features?: string[];
   applications?: string[];
