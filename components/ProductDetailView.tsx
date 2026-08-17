@@ -782,8 +782,8 @@ export default function ProductDetailView({ product, parentCat, subCat, region }
                 <span className="text-[9px] font-bold text-on-surface-variant uppercase">Certified</span>
               </div>
               <div className="flex flex-col items-center space-y-1 select-none">
-                <div className="w-12 h-12 rounded-full bg-white border border-surface-container-highest flex items-center justify-center text-primary text-xs font-black shadow-sm">ISO</div>
-                <span className="text-[9px] font-bold text-on-surface-variant uppercase">22000:2018</span>
+                <div className="w-12 h-12 rounded-full bg-white border border-surface-container-highest flex items-center justify-center text-primary text-[10px] font-black shadow-sm tracking-tighter">FSSC</div>
+                <span className="text-[9px] font-bold text-on-surface-variant uppercase">22000</span>
               </div>
             </div>
           </div>

@@ -159,7 +159,7 @@ export const products: Product[] = [
     },
     "features": [
       "Consistent, Pharma-Grade Purity: Manufactured to a minimum assay of 99.0–101.0% (dried basis), meeting BP, USP, and FCC pharmacopeial standards for both feed and pharmaceutical applications.",
-      "GMP & ISO-Certified Manufacturing: Produced in an ISO 9001:2015 and ISO 22000:2018-certified facility, with GMP, HALAL, and KOSHER certification available on request.",
+      "GMP & FSSC-Certified Manufacturing: Produced in an ISO 9001:2015 and FSSC 22000-certified facility, with GMP, HALAL, and KOSHER certification available on request.",
       "Engineered Particle Consistency: Uniform crystalline particle distribution ensures excellent flowability, reduced caking, and accurate weight uniformity during high-speed feed and tablet production.",
       "Full Regulatory Documentation: Every shipment includes a Certificate of Analysis (COA), Safety Data Sheet (SDS/MSDS), and origin documentation to support REACH (EU), FDA (USA), and UK regulatory compliance.",
       "Established Export Infrastructure: With a dedicated USA warehouse in Boca Raton, Florida, alongside direct export from our Gujarat, India manufacturing plant, we offer shorter lead times and flexible shipment sizes for buyers across North America and Europe.",
