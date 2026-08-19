@@ -291,10 +291,10 @@ export async function POST(req: Request) {
     `;
 
     // Verified domain sender: connect@adityachemicals.in
-    // Sending to itzhimanshu3107@gmail.com and connect@adityachemicals.in
+    // Sending to info@adityachemicals.com and connect@adityachemicals.in
     const emailResult = await resend.emails.send({
       from: "Aditya Chemicals <connect@adityachemicals.in>",
-      to: ["itzhimanshu3107@gmail.com", "connect@adityachemicals.in"],
+      to: ["info@adityachemicals.com", "connect@adityachemicals.in"],
       replyTo: customerEmail,
       subject: `New Specification Sheet Submission from ${customerEmail}`,
       html: emailHtml,

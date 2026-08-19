@@ -1053,7 +1053,7 @@ function SpecificationSheetForm() {
               required
             />
             <p className="text-[11px] text-gray-500 mt-1">
-              Your email will be attached to the specification report sent directly to itzhimanshu3107@gmail.com and Aditya Chemicals.
+              Your email will be attached to the specification report sent directly to info@adityachemicals.com and Aditya Chemicals.
             </p>
           </div>
 
