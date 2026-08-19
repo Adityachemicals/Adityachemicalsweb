@@ -1044,7 +1044,7 @@ function SpecificationSheetForm() {
         <div className="bg-white border border-gray-300 rounded-xl p-6 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-4 font-sans print:hidden">
           <div className="w-full sm:w-auto flex-1">
             <label className="block text-xs font-bold text-gray-800 mb-1">
-              Recipient Email Address (Receive Completed Document Copy) *
+              Your Email Address (For Submission Confirmation) *
             </label>
             <input
               type="email"
@@ -1055,7 +1055,7 @@ function SpecificationSheetForm() {
               required
             />
             <p className="text-[11px] text-gray-500 mt-1">
-              Submitting will automatically send a copy formatted identically to these 3 pages to this email.
+              Your email will be attached to the specification report sent directly to itzhimanshu3107@gmail.com and Aditya Chemicals.
             </p>
           </div>
 

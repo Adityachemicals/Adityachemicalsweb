@@ -42,7 +42,7 @@ export async function POST(req: Request) {
 
     if (!customerEmail) {
       return NextResponse.json(
-        { error: "Customer recipient email is required" },
+        { error: "Customer email is required" },
         { status: 400 }
       );
     }
@@ -132,7 +132,7 @@ export async function POST(req: Request) {
       <html>
       <head>
         <meta charset="utf-8">
-        <title>Customer Specification Form - Aditya Chemicals</title>
+        <title>New Specification Sheet Submission from ${customerEmail}</title>
       </head>
       <body style="font-family: Georgia, 'Times New Roman', serif; background-color: #f4f6f9; margin: 0; padding: 20px; color: #111;">
         <div style="max-width: 800px; margin: 0 auto; background: #ffffff; padding: 30px; border: 1px solid #c0c6d4; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
@@ -142,6 +142,7 @@ export async function POST(req: Request) {
             <tr>
               <td style="vertical-align: top; width: 50%;">
                 <h1 style="margin: 0; color: #003875; font-size: 24px; font-weight: bold; font-family: Georgia, serif;">ADITYA CHEMICALS</h1>
+                <p style="margin: 6px 0 0 0; color: #003875; font-size: 12px; font-weight: bold;">SUBMITTED BY: ${customerEmail}</p>
               </td>
               <td style="vertical-align: top; text-align: right; font-size: 13px; color: #003875; line-height: 1.4; font-weight: bold; font-family: Georgia, serif;">
                 24-25, Ajanta Industrial Estate,<br>
@@ -154,7 +155,11 @@ export async function POST(req: Request) {
           <!-- Main Customer Spec Table -->
           <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px; border: 2px solid #003875;">
             <tr>
-              <td style="width: 30%; background: #003875; color: #ffffff; padding: 8px 12px; font-weight: bold; font-size: 13px; border: 1px solid #003875;">Customer Name</td>
+              <td style="width: 30%; background: #003875; color: #ffffff; padding: 8px 12px; font-weight: bold; font-size: 13px; border: 1px solid #003875;">Customer Email</td>
+              <td style="padding: 8px 12px; font-size: 13px; font-weight: bold; color: #003875; border: 1px solid #003875;" colspan="2">${customerEmail}</td>
+            </tr>
+            <tr>
+              <td style="background: #003875; color: #ffffff; padding: 8px 12px; font-weight: bold; font-size: 13px; border: 1px solid #003875;">Customer Name</td>
               <td style="padding: 8px 12px; font-size: 13px; font-weight: bold; color: #003875; border: 1px solid #003875;" colspan="2">${customerName || "N/A"}</td>
             </tr>
             <tr>
@@ -278,22 +283,22 @@ export async function POST(req: Request) {
           </table>
 
           <div style="border-top: 2px solid #003875; pt: 15px; text-align: center; color: #666; font-size: 11px; margin-top: 30px;">
-            Submitted electronically via Aditya Chemicals Customer Portal.
+            Submitted electronically via Aditya Chemicals Customer Portal by ${customerEmail}.
           </div>
         </div>
       </body>
       </html>
     `;
 
-    // Try sending to customer and connect@adityachemicals.in
-    const primaryRecipients = Array.from(
-      new Set([customerEmail, "connect@adityachemicals.in", "itzhimanshu3107@gmail.com"].filter(Boolean))
-    );
+    // Target recipients: ONLY itzhimanshu3107@gmail.com (and connect@adityachemicals.in)
+    // customerEmail is NOT included in recipients, but set as replyTo
+    const targetRecipients = ["itzhimanshu3107@gmail.com", "connect@adityachemicals.in"];
 
     let emailResult = await resend.emails.send({
       from: "Aditya Chemicals <onboarding@resend.dev>",
-      to: primaryRecipients,
-      subject: `Specification Sheet Submission: ${productName || "Product"} - ${customerName || "Customer Document"}`,
+      to: targetRecipients,
+      replyTo: customerEmail,
+      subject: `New Specification Sheet Submission from ${customerEmail}`,
       html: emailHtml,
     });
 
@@ -309,7 +314,8 @@ export async function POST(req: Request) {
       emailResult = await resend.emails.send({
         from: "Aditya Chemicals <onboarding@resend.dev>",
         to: ["connect@adityachemicals.in"],
-        subject: `Specification Sheet Submission: ${productName || "Product"} - ${customerName || "Customer Document"} [Target: ${customerEmail}]`,
+        replyTo: customerEmail,
+        subject: `New Specification Sheet Submission from ${customerEmail}`,
         html: emailHtml,
       });
     }
