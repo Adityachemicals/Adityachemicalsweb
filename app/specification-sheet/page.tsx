@@ -176,6 +176,9 @@ function SpecificationSheetForm() {
   const [otherRequirementsRemarks, setOtherRequirementsRemarks] = useState("");
   const [customerComments, setCustomerComments] = useState("");
 
+  // Token check
+  const [hasToken, setHasToken] = useState(false);
+
   // Status & Link Generator Modal States
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submittedSuccess, setSubmittedSuccess] = useState(false);
@@ -197,6 +200,7 @@ function SpecificationSheetForm() {
     let payload: TokenPayload | null = null;
 
     if (tokenParam) {
+      setHasToken(true);
       payload = decodeCustomerToken(tokenParam);
     } else {
       // Direct query params fallback
@@ -206,6 +210,7 @@ function SpecificationSheetForm() {
       const expParam = searchParams.get("exp");
 
       if (cName || cEmail || pName || expParam) {
+        setHasToken(true);
         payload = {
           customerName: cName || "",
           customerEmail: cEmail || "",
@@ -427,14 +432,16 @@ function SpecificationSheetForm() {
         </div>
 
         <div className="flex flex-wrap items-center gap-2.5 w-full md:w-auto">
-          <button
-            type="button"
-            onClick={() => setShowGenModal(true)}
-            className="flex items-center gap-1.5 text-xs font-semibold px-3 py-2 bg-[#003875] hover:bg-[#002b55] text-white rounded-lg transition-colors shadow-sm"
-          >
-            <span className="material-symbols-outlined text-sm">qr_code_2</span>
-            Create Customer Link
-          </button>
+          {!hasToken && (
+            <button
+              type="button"
+              onClick={() => setShowGenModal(true)}
+              className="flex items-center gap-1.5 text-xs font-semibold px-3 py-2 bg-[#003875] hover:bg-[#002b55] text-white rounded-lg transition-colors shadow-sm"
+            >
+              <span className="material-symbols-outlined text-sm">qr_code_2</span>
+              Create Customer Link
+            </button>
+          )}
 
           <button
             type="button"
@@ -445,14 +452,16 @@ function SpecificationSheetForm() {
             Reset Form
           </button>
 
-          <button
-            type="button"
-            onClick={handleCopyLink}
-            className="flex items-center gap-1.5 text-xs font-semibold px-3 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg transition-colors border border-gray-300"
-          >
-            <span className="material-symbols-outlined text-sm">link</span>
-            {copiedLink ? "Link Copied!" : "Share Link"}
-          </button>
+          {!hasToken && (
+            <button
+              type="button"
+              onClick={handleCopyLink}
+              className="flex items-center gap-1.5 text-xs font-semibold px-3 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg transition-colors border border-gray-300"
+            >
+              <span className="material-symbols-outlined text-sm">link</span>
+              {copiedLink ? "Link Copied!" : "Share Link"}
+            </button>
+          )}
 
           <button
             type="button"
