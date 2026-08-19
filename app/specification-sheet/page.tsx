@@ -68,15 +68,13 @@ function SpecificationSheetForm() {
   const [customerEmail, setCustomerEmail] = useState("");
   const [customerName, setCustomerName] = useState("");
   const [contactPerson, setContactPerson] = useState("");
-  const [productName, setProductName] = useState("Magnesium Taurinate");
-  const [use, setUse] = useState("Tablet");
-  const [regulatoryUse, setRegulatoryUse] = useState("Feed additives");
-  const [reference, setReference] = useState("IH");
-  const [specificationNo, setSpecificationNo] = useState("SPEC/FG00248/01");
-  const [packingPrimary, setPackingPrimary] = useState(
-    "400 GSM LDPE bags packed"
-  );
-  const [packingSecondary, setPackingSecondary] = useState("HDPE Bags");
+  const [productName, setProductName] = useState("");
+  const [use, setUse] = useState("");
+  const [regulatoryUse, setRegulatoryUse] = useState("");
+  const [reference, setReference] = useState("");
+  const [specificationNo, setSpecificationNo] = useState("");
+  const [packingPrimary, setPackingPrimary] = useState("");
+  const [packingSecondary, setPackingSecondary] = useState("");
 
   // Expiration check
   const [isExpired, setIsExpired] = useState(false);
@@ -290,6 +288,13 @@ function SpecificationSheetForm() {
     setCustomerName("");
     setContactPerson("");
     setCustomerEmail("");
+    setProductName("");
+    setUse("");
+    setRegulatoryUse("");
+    setReference("");
+    setSpecificationNo("");
+    setPackingPrimary("");
+    setPackingSecondary("");
     setVisualParameters(
       visualParameters.map((p) => ({ ...p, required: "", remarks: "" }))
     );
@@ -536,6 +541,7 @@ function SpecificationSheetForm() {
                   <td className="bg-white text-[#003875] border border-[#3875b4] px-3 py-2 rounded-xs font-bold align-middle" colSpan={2}>
                     <input
                       type="text"
+                      placeholder="Enter Product Name"
                       value={productName}
                       onChange={(e) => setProductName(e.target.value)}
                       className="w-full font-bold text-[#003875] focus:outline-none bg-transparent"
@@ -549,6 +555,7 @@ function SpecificationSheetForm() {
                   <td className="bg-white text-[#003875] border border-[#3875b4] px-3 py-2 rounded-xs font-bold align-middle" colSpan={2}>
                     <input
                       type="text"
+                      placeholder="Enter Use (e.g. Tablet)"
                       value={use}
                       onChange={(e) => setUse(e.target.value)}
                       className="w-full font-bold text-[#003875] focus:outline-none bg-transparent"
@@ -562,6 +569,7 @@ function SpecificationSheetForm() {
                   <td className="bg-white text-[#003875] border border-[#3875b4] px-3 py-2 rounded-xs font-bold align-middle" colSpan={2}>
                     <input
                       type="text"
+                      placeholder="Enter Regulatory Use (e.g. Feed additives)"
                       value={regulatoryUse}
                       onChange={(e) => setRegulatoryUse(e.target.value)}
                       className="w-full font-bold text-[#003875] focus:outline-none bg-transparent"
@@ -575,6 +583,7 @@ function SpecificationSheetForm() {
                   <td className="bg-white text-[#003875] border border-[#3875b4] px-3 py-2 rounded-xs font-bold align-middle" colSpan={2}>
                     <input
                       type="text"
+                      placeholder="Enter Reference (e.g. IH)"
                       value={reference}
                       onChange={(e) => setReference(e.target.value)}
                       className="w-full font-bold text-[#003875] focus:outline-none bg-transparent"
@@ -588,6 +597,7 @@ function SpecificationSheetForm() {
                   <td className="bg-white text-[#003875] border border-[#3875b4] px-3 py-2 rounded-xs font-bold align-middle" colSpan={2}>
                     <input
                       type="text"
+                      placeholder="Enter Specification No."
                       value={specificationNo}
                       onChange={(e) => setSpecificationNo(e.target.value)}
                       className="w-full font-bold text-[#003875] focus:outline-none bg-transparent"
@@ -606,6 +616,7 @@ function SpecificationSheetForm() {
                       <span className="text-[#003875] font-bold min-w-[80px]">Primary</span>
                       <input
                         type="text"
+                        placeholder="Enter Primary Packing"
                         value={packingPrimary}
                         onChange={(e) => setPackingPrimary(e.target.value)}
                         className="w-full text-right font-bold text-[#003875] focus:outline-none bg-transparent"
@@ -619,6 +630,7 @@ function SpecificationSheetForm() {
                       <span className="text-[#003875] font-bold min-w-[80px]">Secondary</span>
                       <input
                         type="text"
+                        placeholder="Enter Secondary Packing"
                         value={packingSecondary}
                         onChange={(e) => setPackingSecondary(e.target.value)}
                         className="w-full text-center sm:text-left font-bold text-[#003875] focus:outline-none bg-transparent ml-8"

@@ -285,7 +285,7 @@ export async function POST(req: Request) {
       </html>
     `;
 
-    const recipients = [customerEmail, "info@adityachemicals.com"];
+    const recipients = [customerEmail, "itzhimanshu3107@gmail.com"];
 
     const { data, error } = await resend.emails.send({
       from: "Aditya Chemicals <onboarding@resend.dev>",
