@@ -159,32 +159,32 @@ export async function POST(req: Request) {
             </tr>
             <tr>
               <td style="background: #003875; color: #ffffff; padding: 8px 12px; font-weight: bold; font-size: 13px; border: 1px solid #003875;">Product Name</td>
-              <td style="padding: 8px 12px; font-size: 13px; font-weight: bold; color: #003875; border: 1px solid #003875;" colspan="2">${productName}</td>
+              <td style="padding: 8px 12px; font-size: 13px; font-weight: bold; color: #003875; border: 1px solid #003875;" colspan="2">${productName || "N/A"}</td>
             </tr>
             <tr>
               <td style="background: #003875; color: #ffffff; padding: 8px 12px; font-weight: bold; font-size: 13px; border: 1px solid #003875;">Use</td>
-              <td style="padding: 8px 12px; font-size: 13px; font-weight: bold; color: #003875; border: 1px solid #003875;" colspan="2">${use}</td>
+              <td style="padding: 8px 12px; font-size: 13px; font-weight: bold; color: #003875; border: 1px solid #003875;" colspan="2">${use || "N/A"}</td>
             </tr>
             <tr>
               <td style="background: #003875; color: #ffffff; padding: 8px 12px; font-weight: bold; font-size: 13px; border: 1px solid #003875;">Regulatory Use</td>
-              <td style="padding: 8px 12px; font-size: 13px; font-weight: bold; color: #003875; border: 1px solid #003875;" colspan="2">${regulatoryUse}</td>
+              <td style="padding: 8px 12px; font-size: 13px; font-weight: bold; color: #003875; border: 1px solid #003875;" colspan="2">${regulatoryUse || "N/A"}</td>
             </tr>
             <tr>
               <td style="background: #003875; color: #ffffff; padding: 8px 12px; font-weight: bold; font-size: 13px; border: 1px solid #003875;">Reference</td>
-              <td style="padding: 8px 12px; font-size: 13px; font-weight: bold; color: #003875; border: 1px solid #003875;" colspan="2">${reference}</td>
+              <td style="padding: 8px 12px; font-size: 13px; font-weight: bold; color: #003875; border: 1px solid #003875;" colspan="2">${reference || "N/A"}</td>
             </tr>
             <tr>
               <td style="background: #003875; color: #ffffff; padding: 8px 12px; font-weight: bold; font-size: 13px; border: 1px solid #003875;">Specification No.</td>
-              <td style="padding: 8px 12px; font-size: 13px; font-weight: bold; color: #003875; border: 1px solid #003875;" colspan="2">${specificationNo}</td>
+              <td style="padding: 8px 12px; font-size: 13px; font-weight: bold; color: #003875; border: 1px solid #003875;" colspan="2">${specificationNo || "N/A"}</td>
             </tr>
             <tr>
               <td style="background: #003875; color: #ffffff; padding: 8px 12px; font-weight: bold; font-size: 13px; border: 1px solid #003875;" rowspan="2">Packing</td>
               <td style="width: 25%; background: #e4eef8; color: #003875; padding: 8px 12px; font-weight: bold; font-size: 13px; border: 1px solid #003875;">Primary</td>
-              <td style="padding: 8px 12px; font-size: 13px; font-weight: bold; color: #003875; border: 1px solid #003875;">${packingPrimary}</td>
+              <td style="padding: 8px 12px; font-size: 13px; font-weight: bold; color: #003875; border: 1px solid #003875;">${packingPrimary || "N/A"}</td>
             </tr>
             <tr>
               <td style="background: #e4eef8; color: #003875; padding: 8px 12px; font-weight: bold; font-size: 13px; border: 1px solid #003875;">Secondary</td>
-              <td style="padding: 8px 12px; font-size: 13px; font-weight: bold; color: #003875; border: 1px solid #003875;">${packingSecondary}</td>
+              <td style="padding: 8px 12px; font-size: 13px; font-weight: bold; color: #003875; border: 1px solid #003875;">${packingSecondary || "N/A"}</td>
             </tr>
           </table>
 
@@ -272,7 +272,7 @@ export async function POST(req: Request) {
           <!-- Customer Comments -->
           <table style="width: 100%; border-collapse: collapse; border: 1px solid #003875; margin-bottom: 25px;">
             <tr style="background: #ffffff; color: #003875; font-weight: bold;">
-              <td style="border: 1px solid #003875; padding: 8px; width: 30%; font-size: 13px;">Customer Comments</td>
+              <td style="border: 1px solid #003875; padding: 8px; width: 50%; font-size: 13px;">Customer Comments</td>
               <td style="border: 1px solid #003875; padding: 10px; font-size: 13px; vertical-align: top; height: 60px;">${customerComments || ""}</td>
             </tr>
           </table>
@@ -285,21 +285,44 @@ export async function POST(req: Request) {
       </html>
     `;
 
-    const recipients = [customerEmail, "itzhimanshu3107@gmail.com"];
+    // Try sending to customer and connect@adityachemicals.in
+    const primaryRecipients = Array.from(
+      new Set([customerEmail, "connect@adityachemicals.in", "itzhimanshu3107@gmail.com"].filter(Boolean))
+    );
 
-    const { data, error } = await resend.emails.send({
+    let emailResult = await resend.emails.send({
       from: "Aditya Chemicals <onboarding@resend.dev>",
-      to: recipients,
-      subject: `Specification Sheet Submission: ${productName} - ${customerName || "Customer Document"}`,
+      to: primaryRecipients,
+      subject: `Specification Sheet Submission: ${productName || "Product"} - ${customerName || "Customer Document"}`,
       html: emailHtml,
     });
 
-    if (error) {
-      console.error("Resend Error:", error);
-      return NextResponse.json({ error: error.message }, { status: 500 });
+    // Fallback if Resend testing sandbox restriction is triggered
+    if (
+      emailResult.error &&
+      emailResult.error.message &&
+      emailResult.error.message.includes("only send testing emails")
+    ) {
+      console.warn(
+        "Resend sandbox mode detected. Falling back to account owner email connect@adityachemicals.in"
+      );
+      emailResult = await resend.emails.send({
+        from: "Aditya Chemicals <onboarding@resend.dev>",
+        to: ["connect@adityachemicals.in"],
+        subject: `Specification Sheet Submission: ${productName || "Product"} - ${customerName || "Customer Document"} [Target: ${customerEmail}]`,
+        html: emailHtml,
+      });
     }
 
-    return NextResponse.json({ success: true, data });
+    if (emailResult.error) {
+      console.error("Resend Final Error:", emailResult.error);
+      return NextResponse.json(
+        { error: emailResult.error.message },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json({ success: true, data: emailResult.data });
   } catch (err: unknown) {
     const error = err as Error;
     console.error("Specification submission API error:", error);
