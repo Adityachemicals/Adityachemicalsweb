@@ -187,7 +187,7 @@ function SpecificationSheetForm() {
   const [showGenModal, setShowGenModal] = useState(false);
   const [genCustomerName, setGenCustomerName] = useState("");
   const [genCustomerEmail, setGenCustomerEmail] = useState("");
-  const [genProductName, setGenProductName] = useState("Magnesium Taurinate");
+  const [genProductName, setGenProductName] = useState("");
   const [genExpiryDays, setGenExpiryDays] = useState("14");
   const [generatedUrl, setGeneratedUrl] = useState("");
   const [genCopied, setGenCopied] = useState(false);
@@ -212,7 +212,7 @@ function SpecificationSheetForm() {
         payload = {
           customerName: cName || "",
           customerEmail: cEmail || "",
-          productName: pName || "Magnesium Taurinate",
+          productName: pName || "",
           expiresAt: expParam ? parseInt(expParam, 10) : null,
         };
       }
@@ -344,8 +344,6 @@ function SpecificationSheetForm() {
 
     const payload: TokenPayload = {
       customerName: genCustomerName,
-      customerEmail: genCustomerEmail,
-      productName: genProductName,
       expiresAt,
     };
 
