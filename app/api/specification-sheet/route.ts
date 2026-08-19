@@ -290,38 +290,18 @@ export async function POST(req: Request) {
       </html>
     `;
 
-    // Target recipients: ONLY itzhimanshu3107@gmail.com (and connect@adityachemicals.in)
-    // customerEmail is NOT included in recipients, but set as replyTo
-    const targetRecipients = ["itzhimanshu3107@gmail.com", "connect@adityachemicals.in"];
-
-    let emailResult = await resend.emails.send({
-      from: "Aditya Chemicals <onboarding@resend.dev>",
-      to: targetRecipients,
+    // Verified domain sender: connect@adityachemicals.in
+    // Sending to itzhimanshu3107@gmail.com and connect@adityachemicals.in
+    const emailResult = await resend.emails.send({
+      from: "Aditya Chemicals <connect@adityachemicals.in>",
+      to: ["itzhimanshu3107@gmail.com", "connect@adityachemicals.in"],
       replyTo: customerEmail,
       subject: `New Specification Sheet Submission from ${customerEmail}`,
       html: emailHtml,
     });
 
-    // Fallback if Resend testing sandbox restriction is triggered
-    if (
-      emailResult.error &&
-      emailResult.error.message &&
-      emailResult.error.message.includes("only send testing emails")
-    ) {
-      console.warn(
-        "Resend sandbox mode detected. Falling back to account owner email connect@adityachemicals.in"
-      );
-      emailResult = await resend.emails.send({
-        from: "Aditya Chemicals <onboarding@resend.dev>",
-        to: ["connect@adityachemicals.in"],
-        replyTo: customerEmail,
-        subject: `New Specification Sheet Submission from ${customerEmail}`,
-        html: emailHtml,
-      });
-    }
-
     if (emailResult.error) {
-      console.error("Resend Final Error:", emailResult.error);
+      console.error("Resend Error:", emailResult.error);
       return NextResponse.json(
         { error: emailResult.error.message },
         { status: 500 }
