@@ -107,13 +107,6 @@ export default function ProductDetailView({ product, parentCat, subCat, region }
       "value": product.details.formula
     });
   }
-  if (product.details?.weight) {
-    productSchema.additionalProperty.push({
-      "@type": "PropertyValue",
-      "name": "Molecular Weight",
-      "value": product.details.weight
-    });
-  }
   if (product.details?.grade) {
     productSchema.additionalProperty.push({
       "@type": "PropertyValue",
@@ -159,58 +152,7 @@ export default function ProductDetailView({ product, parentCat, subCat, region }
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
         "opens": "09:30",
-        "closes": "18:00"
       }
-    };
-  }
-
-  let faqSchema: any = null;
-  if (product.slug === "dl-methionine-2") {
-    faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Is DL-Methionine the same as L-Methionine?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. L-Methionine is the naturally occurring isomer found in food proteins, while DL-Methionine is a racemic mixture of the D- and L-forms produced synthetically. In monogastric animals, the D-form is efficiently converted to the biologically active L-form, making DL-Methionine an effective and widely used substitute in feed formulation."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the shelf life of DL-Methionine?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "When stored correctly in a well-closed container away from moisture and direct sunlight, DL-Methionine has a shelf life of 5 years from the date of manufacture."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you supply DL-Methionine to the USA, UK, and Europe?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Aditya Chemicals regularly exports DL-Methionine to buyers across North America and Europe, supported by a dedicated warehouse facility in Boca Raton, Florida, USA, in addition to direct exports from our India manufacturing plant."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What packaging options are available?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Standard packaging is 25 kg fiber drums or multi-wall paper bags with a PE inner liner. Custom packaging and labeling can be arranged for bulk and private-label orders."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can you provide a Certificate of Analysis (COA) and MSDS?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, a COA and MSDS/SDS are provided with every shipment, and can also be shared in advance upon request for regulatory or import documentation purposes."
-          }
-        }
-      ]
     };
   }
 
@@ -229,12 +171,6 @@ export default function ProductDetailView({ product, parentCat, subCat, region }
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-        />
-      )}
-      {faqSchema && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       )}
 
@@ -415,12 +351,6 @@ export default function ProductDetailView({ product, parentCat, subCat, region }
                       <span className="text-sm font-bold text-deep-navy font-mono block">{product.details.formula}</span>
                     </div>
                   )}
-                  {product.details?.weight && (
-                    <div className="space-y-1">
-                      <span className="block text-[10px] uppercase tracking-wider text-on-surface-variant/80 font-semibold">Molecular Wt.</span>
-                      <span className="text-sm font-bold text-deep-navy font-mono block">{product.details.weight}</span>
-                    </div>
-                  )}
                   {product.details?.grade && (
                     <div className="space-y-1">
                       <span className="block text-[10px] uppercase tracking-wider text-on-surface-variant/80 font-semibold">Grades</span>
@@ -458,12 +388,6 @@ export default function ProductDetailView({ product, parentCat, subCat, region }
                       <tr className="border-b border-surface-container-highest/60">
                         <td className="py-3.5 font-semibold text-deep-navy uppercase">Molecular Formula</td>
                         <td className="py-3.5 text-on-surface-variant font-mono font-bold text-primary">{product.details.formula}</td>
-                      </tr>
-                    )}
-                    {product.details?.weight && (
-                      <tr className="border-b border-surface-container-highest/60">
-                        <td className="py-3.5 font-semibold text-deep-navy uppercase">Molecular Weight</td>
-                        <td className="py-3.5 text-on-surface-variant font-medium">{product.details.weight}</td>
                       </tr>
                     )}
                     {product.specifications?.iupacName && (
@@ -522,234 +446,76 @@ export default function ProductDetailView({ product, parentCat, subCat, region }
 
           </div>
 
-          {/* Section 2: Technical Specifications & Features Split Bento Box */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-
-            {/* Features & Benefits Column */}
-            {product.features && product.features.length > 0 && (
-              <div className="lg:col-span-6 bg-white rounded-[2rem] p-6 md:p-8 border border-surface-container-highest shadow-sm hover:shadow-md transition-shadow duration-300 space-y-6">
-                <h2 className="text-xl font-bold text-deep-navy border-b border-surface-container-highest pb-2 select-none uppercase tracking-wider">
-                  Key Features & Benefits
-                </h2>
-                <ul className="space-y-4">
-                  {product.features.map((feature, idx) => {
-                    const parts = feature.split(': ', 2);
-                    return (
-                      <li key={idx} className="flex items-start gap-3 text-sm text-on-surface-variant leading-relaxed">
-                        <span className="material-symbols-outlined text-primary text-xl mt-0.5 select-none">
-                          check_circle
-                        </span>
-                        <span>
-                          {parts.length === 2 ? (
-                            <>
-                              <strong className="text-deep-navy font-bold">{parts[0]}:</strong> {parts[1]}
-                            </>
-                          ) : (
-                            feature
-                          )}
-                        </span>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            )}
-
-            {/* Technical Specifications Table Column */}
-            <div className="lg:col-span-6 bg-white rounded-[2rem] p-6 md:p-8 border border-surface-container-highest shadow-sm hover:shadow-md transition-shadow duration-300 space-y-6">
+          {/* Section 2: Key Features & Benefits */}
+          {product.features && product.features.length > 0 && (
+            <div className="max-w-4xl mx-auto bg-white rounded-[2rem] p-6 md:p-8 border border-surface-container-highest shadow-sm hover:shadow-md transition-shadow duration-300 space-y-6">
               <h2 className="text-xl font-bold text-deep-navy border-b border-surface-container-highest pb-2 select-none uppercase tracking-wider">
-                {product.slug === "zinc-monomethionine" ? "Physicochemical Properties" : "Technical Specifications"}
+                Key Features & Benefits
               </h2>
-              <table className="w-full text-xs md:text-sm text-left border-collapse">
-                <thead>
-                  <tr className="border-b border-surface-container-highest font-bold text-deep-navy">
-                    <th className="py-2.5 uppercase w-[40%]">Parameter</th>
-                    <th className="py-2.5 uppercase">Specification</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {product.specifications?.physicalForm && (
-                    <tr className="border-b border-surface-container-highest/60">
-                      <td className="py-3 font-semibold text-deep-navy">Appearance</td>
-                      <td className="py-3 text-on-surface-variant leading-relaxed">{product.specifications.physicalForm}</td>
-                    </tr>
-                  )}
-                  {product.specifications?.zincContent && (
-                    <tr className="border-b border-surface-container-highest/60">
-                      <td className="py-3 font-semibold text-deep-navy">Zinc Content</td>
-                      <td className="py-3 text-on-surface-variant leading-relaxed">{product.specifications.zincContent}</td>
-                    </tr>
-                  )}
-                  {product.specifications?.methionineContent && (
-                    <tr className="border-b border-surface-container-highest/60">
-                      <td className="py-3 font-semibold text-deep-navy">Methionine Content</td>
-                      <td className="py-3 text-on-surface-variant leading-relaxed">{product.specifications.methionineContent}</td>
-                    </tr>
-                  )}
-                  {product.specifications?.assay && (
-                    <tr className="border-b border-surface-container-highest/60">
-                      <td className="py-3 font-semibold text-deep-navy">Standard Assay</td>
-                      <td className="py-3 text-on-surface-variant leading-relaxed">{product.specifications.assay}</td>
-                    </tr>
-                  )}
-                  {product.slug === "calcium-glycerophosphate" && (
-                    <>
-                      <tr className="border-b border-surface-container-highest/60">
-                        <td className="py-3 font-semibold text-deep-navy">Phosphorus Content</td>
-                        <td className="py-3 text-on-surface-variant leading-relaxed">12.0% to 13.0% P</td>
-                      </tr>
-                      <tr className="border-b border-surface-container-highest/60">
-                        <td className="py-3 font-semibold text-deep-navy">Loss on Drying</td>
-                        <td className="py-3 text-on-surface-variant leading-relaxed">Maximum 12.0%</td>
-                      </tr>
-                      <tr className="border-b border-surface-container-highest/60">
-                        <td className="py-3 font-semibold text-deep-navy">pH (1% Solution)</td>
-                        <td className="py-3 text-on-surface-variant leading-relaxed">6.0 – 8.5</td>
-                      </tr>
-                      <tr className="border-b border-surface-container-highest/60">
-                        <td className="py-3 font-semibold text-deep-navy">Heavy Metals (as Pb)</td>
-                        <td className="py-3 text-on-surface-variant leading-relaxed">Maximum 10 ppm</td>
-                      </tr>
-                      <tr className="border-b border-surface-container-highest/60">
-                        <td className="py-3 font-semibold text-deep-navy">Arsenic (As)</td>
-                        <td className="py-3 text-on-surface-variant leading-relaxed">Maximum 2 ppm</td>
-                      </tr>
-                      <tr className="border-b border-surface-container-highest/60">
-                        <td className="py-3 font-semibold text-deep-navy">Fluoride (F)</td>
-                        <td className="py-3 text-on-surface-variant leading-relaxed">Maximum 50 ppm</td>
-                      </tr>
-                    </>
-                  )}
-                  {product.slug === "dl-methionine-2" && (
-                    <>
-                      <tr className="border-b border-surface-container-highest/60">
-                        <td className="py-3 font-semibold text-deep-navy">Loss on Drying</td>
-                        <td className="py-3 text-on-surface-variant leading-relaxed">&le; 0.5%</td>
-                      </tr>
-                      <tr className="border-b border-surface-container-highest/60">
-                        <td className="py-3 font-semibold text-deep-navy">Heavy Metals</td>
-                        <td className="py-3 text-on-surface-variant leading-relaxed">Complies with BP/USP limits</td>
-                      </tr>
-                      <tr className="border-b border-surface-container-highest/60">
-                        <td className="py-3 font-semibold text-deep-navy">Packaging</td>
-                        <td className="py-3 text-on-surface-variant leading-relaxed">25 kg fiber drums / multi-wall paper bags with inner PE liner (custom packaging available)</td>
-                      </tr>
-                    </>
-                  )}
-                  {product.specifications?.solubility && (
-                    <tr className="border-b border-surface-container-highest/60">
-                      <td className="py-3 font-semibold text-deep-navy">Solubility</td>
-                      <td className="py-3 text-on-surface-variant leading-relaxed">{product.specifications.solubility}</td>
-                    </tr>
-                  )}
-                  {product.specifications?.storage && (
-                    <tr>
-                      <td className="py-3 font-semibold text-deep-navy">Storage</td>
-                      <td className="py-3 text-on-surface-variant leading-relaxed">{product.specifications.storage}</td>
-                    </tr>
-                  )}
-                </tbody>
-              </table>
+              <ul className="space-y-4">
+                {product.features.map((feature, idx) => {
+                  const parts = feature.split(': ', 2);
+                  return (
+                    <li key={idx} className="flex items-start gap-3 text-sm text-on-surface-variant leading-relaxed">
+                      <span className="material-symbols-outlined text-primary text-xl mt-0.5 select-none">
+                        check_circle
+                      </span>
+                      <span>
+                        {parts.length === 2 ? (
+                          <>
+                            <strong className="text-deep-navy font-bold">{parts[0]}:</strong> {parts[1]}
+                          </>
+                        ) : (
+                          feature
+                        )}
+                      </span>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
+          )}
 
-          </div>
+          {/* Section 3: Target Applications */}
+          {product.applications && product.applications.length > 0 && (
+            <div className="space-y-6 max-w-4xl mx-auto">
+              <h2 className="text-xl font-bold text-deep-navy border-b border-surface-container-highest pb-2 select-none uppercase tracking-wider">
+                Target Applications
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {product.applications.map((app, idx) => {
+                  const parts = app.split(': ', 2);
 
-          {/* Section 3: Physical Properties & Target Applications split */}
-          {product.slug !== "zinc-monomethionine" && (
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                  // Dynamically assign an icon for visual elegance
+                  let appIcon = "manufacturing";
+                  const lowerName = parts[0].toLowerCase();
+                  if (lowerName.includes("supplement") || lowerName.includes("nutraceutical")) appIcon = "pill";
+                  else if (lowerName.includes("sport") || lowerName.includes("nutrition")) appIcon = "fitness_center";
+                  else if (lowerName.includes("pharmaceutical")) appIcon = "medical_services";
+                  else if (lowerName.includes("food") || lowerName.includes("beverage")) appIcon = "restaurant";
+                  else if (lowerName.includes("clinical") || lowerName.includes("medical")) appIcon = "clinical_notes";
+                  else if (lowerName.includes("oral") || lowerName.includes("dental")) appIcon = "dentistry";
+                  else if (lowerName.includes("bone") || lowerName.includes("skeletal")) appIcon = "bone";
+                  else if (lowerName.includes("animal") || lowerName.includes("feed") || lowerName.includes("poultry")) appIcon = "grain";
+                  else if (lowerName.includes("cosmetic") || lowerName.includes("personal care")) appIcon = "science";
 
-              {/* Properties Column */}
-              <div className="lg:col-span-5 bg-white rounded-[2rem] p-6 md:p-8 border border-surface-container-highest shadow-sm hover:shadow-md transition-shadow duration-300 space-y-6">
-                <h2 className="text-xl font-bold text-deep-navy border-b border-surface-container-highest pb-2 select-none uppercase tracking-wider">
-                  Physical & Chemical Properties
-                </h2>
-                <table className="w-full text-xs md:text-sm text-left border-collapse">
-                  <thead>
-                    <tr className="border-b border-surface-container-highest font-bold text-deep-navy">
-                      <th className="py-2.5 uppercase w-[40%]">Property</th>
-                      <th className="py-2.5 uppercase">Details</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr className="border-b border-surface-container-highest/60">
-                      <td className="py-3 font-semibold text-deep-navy">Physical Form</td>
-                      <td className="py-3 text-on-surface-variant">{product.specifications?.physicalForm || "White powder"}</td>
-                    </tr>
-                    <tr className="border-b border-surface-container-highest/60">
-                      <td className="py-3 font-semibold text-deep-navy">Odor</td>
-                      <td className="py-3 text-on-surface-variant">{product.slug === "dl-methionine-2" ? "Odorless, or with a faint characteristic odor" : "Odorless"}</td>
-                    </tr>
-                    <tr className="border-b border-surface-container-highest/60">
-                      <td className="py-3 font-semibold text-deep-navy">Taste</td>
-                      <td className="py-3 text-on-surface-variant">{product.slug === "dl-methionine-2" ? "Slightly bitter to bland" : "Slightly saline / bland"}</td>
-                    </tr>
-                    {product.slug === "calcium-glycerophosphate" && (
-                      <>
-                        <tr className="border-b border-surface-container-highest/60">
-                          <td className="py-3 font-semibold text-deep-navy">Melting Point</td>
-                          <td className="py-3 text-on-surface-variant">Decomposes</td>
-                        </tr>
-                        <tr className="border-b border-surface-container-highest/60">
-                          <td className="py-3 font-semibold text-deep-navy">Bulk Density</td>
-                          <td className="py-3 text-on-surface-variant">0.4 – 0.7 g/mL (approx.)</td>
-                        </tr>
-                        <tr className="border-b border-surface-container-highest/60">
-                          <td className="py-3 font-semibold text-deep-navy">Particle Size</td>
-                          <td className="py-3 text-on-surface-variant">90% through 100 mesh</td>
-                        </tr>
-                      </>
-                    )}
-                    <tr>
-                      <td className="py-3 font-semibold text-deep-navy">Solubility Info</td>
-                      <td className="py-3 text-on-surface-variant leading-relaxed">{product.specifications?.solubility ? "Sparingly soluble in water, insoluble in ethanol" : "Available upon request"}</td>
-                    </tr>
-                  </tbody>
-                </table>
+                  return (
+                    <div key={idx} className="bg-white p-5 rounded-2xl border border-surface-container-highest shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 space-y-2 flex flex-col justify-start">
+                      <div className="flex items-center gap-2">
+                        <span className="material-symbols-outlined text-primary text-xl select-none">
+                          {appIcon}
+                        </span>
+                        <h3 className="font-bold text-deep-navy text-sm leading-snug">
+                          {parts.length === 2 ? parts[0] : "Application Area"}
+                        </h3>
+                      </div>
+                      <p className="text-xs text-on-surface-variant leading-relaxed">
+                        {parts.length === 2 ? parts[1] : app}
+                      </p>
+                    </div>
+                  );
+                })}
               </div>
-
-              {/* Applications Column */}
-              {product.applications && product.applications.length > 0 && (
-                <div className="lg:col-span-7 space-y-4">
-                  <h2 className="text-xl font-bold text-deep-navy border-b border-surface-container-highest pb-2 select-none uppercase tracking-wider">
-                    Target Applications
-                  </h2>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {product.applications.map((app, idx) => {
-                      const parts = app.split(': ', 2);
-
-                      // Dynamically assign an icon for visual elegance
-                      let appIcon = "manufacturing";
-                      const lowerName = parts[0].toLowerCase();
-                      if (lowerName.includes("supplement") || lowerName.includes("nutraceutical")) appIcon = "pill";
-                      else if (lowerName.includes("sport") || lowerName.includes("nutrition")) appIcon = "fitness_center";
-                      else if (lowerName.includes("pharmaceutical")) appIcon = "medical_services";
-                      else if (lowerName.includes("food") || lowerName.includes("beverage")) appIcon = "restaurant";
-                      else if (lowerName.includes("clinical") || lowerName.includes("medical")) appIcon = "clinical_notes";
-                      else if (lowerName.includes("oral") || lowerName.includes("dental")) appIcon = "dentistry";
-                      else if (lowerName.includes("bone") || lowerName.includes("skeletal")) appIcon = "bone";
-                      else if (lowerName.includes("animal") || lowerName.includes("feed") || lowerName.includes("poultry")) appIcon = "grain";
-                      else if (lowerName.includes("cosmetic") || lowerName.includes("personal care")) appIcon = "science";
-
-                      return (
-                        <div key={idx} className="bg-white p-5 rounded-2xl border border-surface-container-highest shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 space-y-2 flex flex-col justify-start">
-                          <div className="flex items-center gap-2">
-                            <span className="material-symbols-outlined text-primary text-xl select-none">
-                              {appIcon}
-                            </span>
-                            <h3 className="font-bold text-deep-navy text-sm leading-snug">
-                              {parts.length === 2 ? parts[0] : "Application Area"}
-                            </h3>
-                          </div>
-                          <p className="text-xs text-on-surface-variant leading-relaxed">
-                            {parts.length === 2 ? parts[1] : app}
-                          </p>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
-
             </div>
           )}
 
@@ -793,59 +559,14 @@ export default function ProductDetailView({ product, parentCat, subCat, region }
                 </div>
                 <span className="text-[9px] font-bold text-on-surface-variant uppercase">22000</span>
               </div>
-            </div>
-          </div>
-
-          {/* Section 5: Frequently Asked Questions */}
-          {product.slug === "dl-methionine-2" && (
-            <div className="space-y-6 pt-8 border-t border-surface-container-highest">
-              <h2 className="text-xl md:text-2xl font-bold text-deep-navy uppercase tracking-wider select-none">
-                Frequently Asked Questions
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white p-6 rounded-3xl border border-surface-container-highest shadow-sm hover:shadow transition-shadow duration-300 space-y-2">
-                  <h3 className="font-bold text-deep-navy text-sm md:text-base leading-snug">
-                    Is DL-Methionine the same as L-Methionine?
-                  </h3>
-                  <p className="text-xs md:text-sm text-on-surface-variant leading-relaxed">
-                    No. L-Methionine is the naturally occurring isomer found in food proteins, while DL-Methionine is a racemic mixture of the D- and L-forms produced synthetically. In monogastric animals, the D-form is efficiently converted to the biologically active L-form, making DL-Methionine an effective and widely used substitute in feed formulation.
-                  </p>
+              <div className="flex flex-col items-center space-y-1 select-none hover:-translate-y-1 transition-transform duration-300">
+                <div className="w-14 h-14 relative flex items-center justify-center">
+                  <Image src="/logo-pda.svg" alt="PDA Member" fill className="object-contain" />
                 </div>
-                <div className="bg-white p-6 rounded-3xl border border-surface-container-highest shadow-sm hover:shadow transition-shadow duration-300 space-y-2">
-                  <h3 className="font-bold text-deep-navy text-sm md:text-base leading-snug">
-                    What is the shelf life of DL-Methionine?
-                  </h3>
-                  <p className="text-xs md:text-sm text-on-surface-variant leading-relaxed">
-                    When stored correctly in a well-closed container away from moisture and direct sunlight, DL-Methionine has a shelf life of 5 years from the date of manufacture.
-                  </p>
-                </div>
-                <div className="bg-white p-6 rounded-3xl border border-surface-container-highest shadow-sm hover:shadow transition-shadow duration-300 space-y-2">
-                  <h3 className="font-bold text-deep-navy text-sm md:text-base leading-snug">
-                    Do you supply DL-Methionine to the USA, UK, and Europe?
-                  </h3>
-                  <p className="text-xs md:text-sm text-on-surface-variant leading-relaxed">
-                    Yes. Aditya Chemicals regularly exports DL-Methionine to buyers across North America and Europe, supported by a dedicated warehouse facility in Boca Raton, Florida, USA, in addition to direct exports from our India manufacturing plant.
-                  </p>
-                </div>
-                <div className="bg-white p-6 rounded-3xl border border-surface-container-highest shadow-sm hover:shadow transition-shadow duration-300 space-y-2">
-                  <h3 className="font-bold text-deep-navy text-sm md:text-base leading-snug">
-                    What packaging options are available?
-                  </h3>
-                  <p className="text-xs md:text-sm text-on-surface-variant leading-relaxed">
-                    Standard packaging is 25 kg fiber drums or multi-wall paper bags with a PE inner liner. Custom packaging and labeling can be arranged for bulk and private-label orders.
-                  </p>
-                </div>
-                <div className="bg-white p-6 rounded-3xl border border-surface-container-highest shadow-sm hover:shadow transition-shadow duration-300 space-y-2 col-span-1 md:col-span-2">
-                  <h3 className="font-bold text-deep-navy text-sm md:text-base leading-snug">
-                    Can you provide a Certificate of Analysis (COA) and MSDS?
-                  </h3>
-                  <p className="text-xs md:text-sm text-on-surface-variant leading-relaxed">
-                    Yes, a COA and MSDS/SDS are provided with every shipment, and can also be shared in advance upon request for regulatory or import documentation purposes.
-                  </p>
-                </div>
+                <span className="text-[9px] font-bold text-on-surface-variant uppercase">Member</span>
               </div>
             </div>
-          )}
+          </div>
 
         </div>
       </div>
