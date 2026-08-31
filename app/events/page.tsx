@@ -77,6 +77,7 @@ const pastEvents: EventItem[] = [
     name: "Fi India 2026",
     venue: "Bombay Exhibition Centre (BEC)",
     location: "Mumbai, India",
+    slug: "fi-india-2026",
     country: "India",
     flag: "🇮🇳",
     logoText: "Fi",

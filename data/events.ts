@@ -99,5 +99,47 @@ export const eventsData: Record<string, EventDetails> = {
       "Fostered key partnerships with global supplement brands and contract manufacturers.",
       "Shared logistics capabilities for rapid distribution across Europe and the UK."
     ]
+  },
+  "fi-india-2026": {
+    slug: "fi-india-2026",
+    name: "Fi India 2026",
+    date: "August 26–28, 2026",
+    venue: "Bombay Exhibition Centre (BEC)",
+    location: "Mumbai, India",
+    websiteUrl: "https://www.figlobal.com/india/en/home.html",
+    purpose: "Exhibited our premium portfolio of specialty minerals, amino acids, and active pharmaceutical ingredients (APIs), meeting with top industry leaders, formulators, and global partners at Fi India 2026 in Mumbai.",
+    images: [
+      "/FiIndia2026/875A7062.JPG",
+      "/FiIndia2026/875A7073.JPG",
+      "/FiIndia2026/875A7128.JPG",
+      "/FiIndia2026/875A7280.JPG",
+      "/FiIndia2026/875A7400.JPG"
+    ],
+    titleSEO: "Aditya Chemicals at Fi India 2026 Mumbai | Exhibition Gallery & Highlights",
+    descriptionSEO: "Highlights and photo gallery of Aditya Chemicals at Fi India 2026 held at Bombay Exhibition Centre, Mumbai. Exhibiting bioavailable mineral chelates and custom ingredient solutions.",
+    longDescription: [
+      "Aditya Chemicals participated in Fi India 2026, held at the Bombay Exhibition Centre (BEC) in Mumbai, India from 26 to 28 August 2026. As one of South Asia's premier trade platforms for food ingredients, health supplements, and pharmaceutical excipients, the exhibition brought together leading industry experts, technical formulators, and global supply chain executives.",
+      "At our booth (4F85), Aditya Chemicals presented an extensive portfolio of high-purity chelated minerals, active pharmaceutical ingredients (APIs), and specialized excipients. Our technical sales team engaged with product developers to demonstrate how our advanced mineral chelates—including Magnesium Bisglycinate, Calcium Citrate Malate, Zinc Monomethionine, and Ferrous Bisglycinate—deliver superior bioavailability and physical stability across solid dose and liquid formulations."
+    ],
+    highlights: [
+      {
+        title: "Bioavailable Mineral Chelates Showcase",
+        description: "Featured our high-purity organic mineral complexes engineered for superior gut absorption, excellent powder flowability, and clean taste profiles for nutraceutical and pharmaceutical applications."
+      },
+      {
+        title: "Custom Premixes & Technical Formulations",
+        description: "Demonstrated custom granulation, particle size customization, and tailored premixing capabilities designed to streamline tableting, capsule filling, and beverage fortification."
+      },
+      {
+        title: "Global Compliance & Strategic Supply",
+        description: "Highlighted our full regulatory compliance (GMP, ISO 9001:2015, FSSC 22000, HALAL, KOSHER, PDA Member) and seamless supply chain capabilities serving the US, Europe, UK, and Asian markets."
+      }
+    ],
+    keyTakeaways: [
+      "Successfully showcased our specialized APIs and organic mineral chelates to key Indian and international decision-makers.",
+      "Engaged with food science innovators to resolve formulation, solubility, and tableting challenges.",
+      "Strengthened strategic supply partnerships across North America, Europe, and Asia-Pacific markets.",
+      "Reaffirmed our commitment to world-class manufacturing, quality assurance, and regulatory compliance."
+    ]
   }
 };
