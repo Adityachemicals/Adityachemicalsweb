@@ -5,7 +5,6 @@ import Link from "next/link";
 import EventCountdown from "./EventCountdown";
 
 const events = [
-  { name: "Fi India 2026", date: "2026-08-26T09:00:00", country: "India", flag: "🇮🇳" },
   { name: "Vitafoods Asia 2026", date: "2026-09-02T09:00:00", country: "Thailand", flag: "🇹🇭" },
   { name: "SupplySide West 2026", date: "2026-10-27T09:00:00", country: "USA", flag: "🇺🇸" },
   { name: "CPHI & PMEC India 2026", date: "2026-11-23T09:00:00", country: "India", flag: "🇮🇳" },

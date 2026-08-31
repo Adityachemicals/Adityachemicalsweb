@@ -26,21 +26,6 @@ interface EventItem {
 
 const upcomingEvents: EventItem[] = [
   {
-    date: "26-28 Aug 2026",
-    name: "Fi India 2026",
-    venue: "Bombay Exhibition Centre (BEC)",
-    location: "Mumbai, India",
-    country: "India",
-    flag: "🇮🇳",
-    logoText: "Fi",
-    themeColor: "bg-teal-50 text-teal-700 border-teal-200",
-    icon: "eco",
-    type: "fi",
-    startDateISO: "2026-08-26T09:00:00",
-    websiteUrl: "https://www.figlobal.com/india/en/home.html",
-    booth: "4F85",
-  },
-  {
     date: "2-4 Sep 2026",
     name: "Vitafoods Asia 2026",
     venue: "Queen Sirikit National Convention Center (QSNCC)",
@@ -87,6 +72,18 @@ const upcomingEvents: EventItem[] = [
 ];
 
 const pastEvents: EventItem[] = [
+  {
+    date: "26-28 Aug 2026",
+    name: "Fi India 2026",
+    venue: "Bombay Exhibition Centre (BEC)",
+    location: "Mumbai, India",
+    country: "India",
+    flag: "🇮🇳",
+    logoText: "Fi",
+    themeColor: "bg-teal-50 text-teal-700 border-teal-200",
+    icon: "eco",
+    type: "fi",
+  },
   {
     date: "12-15 July 2026",
     name: "IFT FIRST Chicago 2026",
