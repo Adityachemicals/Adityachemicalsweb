@@ -6,7 +6,7 @@ import EventCountdown from "./EventCountdown";
 
 const events = [
   { name: "Vitafoods Asia 2026", date: "2026-09-02T09:00:00", country: "Thailand", flag: "🇹🇭" },
-  { name: "SupplySide West 2026", date: "2026-10-27T09:00:00", country: "USA", flag: "🇺🇸" },
+  { name: "SupplySide Global 2026", date: "2026-10-28T09:00:00", country: "USA", flag: "🇺🇸" },
   { name: "CPHI & PMEC India 2026", date: "2026-11-23T09:00:00", country: "India", flag: "🇮🇳" },
   { name: "CPhI North America 2027", date: "2027-05-12T09:00:00", country: "USA", flag: "🇺🇸" },
 ];
