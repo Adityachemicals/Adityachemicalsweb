@@ -17,12 +17,12 @@ export default function Header() {
       <div className="flex items-center gap-2">
         <Link href="/" className="flex items-center gap-3">
           <Image
-            src="/aditya_logo.png"
+            src="/logos/LOGO.png"
             alt="Aditya Chemicals"
             title="Aditya Chemicals"
             width={240}
             height={66}
-            className="h-16 w-auto object-contain"
+            className="h-9 md:h-10 w-auto object-contain"
           />
         </Link>
       </div>

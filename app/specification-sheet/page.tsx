@@ -500,11 +500,11 @@ function SpecificationSheetForm() {
             <div className="flex flex-row justify-between items-start border-b-2 border-[#003875] pb-4 mb-6">
               <div>
                 <Image
-                  src="/aditya_logo.png"
+                  src="/logos/LOGO.png"
                   alt="Aditya Chemicals"
                   width={240}
                   height={65}
-                  className="h-16 w-auto object-contain"
+                  className="h-12 w-auto object-contain"
                 />
               </div>
               <div className="text-right text-sm font-bold text-[#003875] leading-snug">

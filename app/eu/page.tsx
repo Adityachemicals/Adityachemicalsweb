@@ -30,14 +30,14 @@ export default function EUHubPage() {
               "@type": "Organization",
               "name": "Aditya Chemicals Europe",
               "url": "https://www.adityachemicals.com/eu",
-              "logo": "https://www.adityachemicals.com/aditya_logo.png",
+              "logo": "https://www.adityachemicals.com/logos/LOGO.png",
               "description": "Aditya Chemicals is a leading global API & Chelated Minerals manufacturer, supplying high-purity chemicals to Europe under REACH compliance."
             },
             {
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "name": "Aditya Chemicals Corporate Office",
-              "image": "https://www.adityachemicals.com/aditya_logo.png",
+              "image": "https://www.adityachemicals.com/logos/LOGO.png",
               "telephone": "+91-79-26854545",
               "address": {
                 "@type": "PostalAddress",

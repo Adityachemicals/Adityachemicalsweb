@@ -12,12 +12,12 @@ export default function Footer() {
         <div className="space-y-6 md:col-span-2 lg:col-span-1">
           <Link href="/" className="flex items-center gap-3">
             <Image
-              src="/aditya_logo.png"
+              src="/logos/LOGO.png"
               alt="Aditya Chemicals"
               title="Aditya Chemicals"
               width={300}
               height={82}
-              className="h-20 w-auto object-contain brightness-0 invert"
+              className="h-10 md:h-12 w-auto object-contain brightness-0 invert"
             />
           </Link>
           <p className="text-surface-variant/85 text-xs leading-relaxed max-w-[280px]">

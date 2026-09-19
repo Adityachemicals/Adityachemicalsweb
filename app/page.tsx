@@ -37,7 +37,7 @@ export default function Home() {
               "@type": "Organization",
               "name": "Aditya Chemicals",
               "url": "https://www.adityachemicals.com",
-              "logo": "https://www.adityachemicals.com/aditya_logo.png",
+              "logo": "https://www.adityachemicals.com/logos/LOGO.png",
               "contactPoint": {
                 "@type": "ContactPoint",
                 "telephone": "+91-79-26854545",
@@ -51,7 +51,7 @@ export default function Home() {
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "name": "Aditya Chemicals Corporate Office",
-              "image": "https://www.adityachemicals.com/aditya_logo.png",
+              "image": "https://www.adityachemicals.com/logos/LOGO.png",
               "telephone": "+91-79-26854545",
               "address": {
                 "@type": "PostalAddress",
@@ -72,7 +72,7 @@ export default function Home() {
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "name": "Aditya Chemicals USA Warehouse",
-              "image": "https://www.adityachemicals.com/aditya_logo.png",
+              "image": "https://www.adityachemicals.com/logos/LOGO.png",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "6550 E Roger Cir",
