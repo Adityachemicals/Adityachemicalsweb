@@ -93,7 +93,7 @@ export default function CertificatesPage() {
             {certificatesList.map((cert, idx) => (
               <div
                 key={idx}
-                className="bg-white p-6 rounded-2xl border border-surface-container-highest shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between space-y-6"
+                className="bg-white p-6 rounded-2xl border border-surface-container-highest shadow-sm hover:shadow-md transition-shadow flex flex-col"
               >
                 <div className="space-y-3">
                   <div className="w-10 h-10 rounded-lg bg-primary/5 text-primary flex items-center justify-center">
@@ -103,17 +103,6 @@ export default function CertificatesPage() {
                     <h3 className="text-lg font-bold text-deep-navy">{cert.name}</h3>
                     <p className="text-xs text-on-surface-variant font-medium mt-1">{cert.subtitle}</p>
                   </div>
-                </div>
-                <div>
-                  <a
-                    href={cert.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full flex items-center justify-center gap-2 px-5 py-3 border border-primary text-primary hover:bg-primary/5 rounded-full font-button text-xs uppercase transition-all duration-200 cursor-pointer font-bold tracking-wider"
-                  >
-                    Download PDF
-                    <span className="material-symbols-outlined text-sm select-none">picture_as_pdf</span>
-                  </a>
                 </div>
               </div>
             ))}
