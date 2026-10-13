@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import ScrollBackground from "@/components/ScrollBackground";
 
 export const metadata = {
@@ -10,6 +11,7 @@ interface Certificate {
   name: string;
   url: string;
   subtitle: string;
+  logo?: string;
 }
 
 const certificatesList: Certificate[] = [
@@ -17,36 +19,43 @@ const certificatesList: Certificate[] = [
     name: "Halal",
     url: "https://adityachemicals.com/wp-content/uploads/2025/07/Halal.pdf",
     subtitle: "Global Dietary Halal Compliance",
+    logo: "/certificate%20logo/HALAL.png",
   },
   {
     name: "Kosher",
     url: "https://adityachemicals.com/wp-content/uploads/2025/07/Kosher.pdf",
     subtitle: "Jewish Dietary Laws Certification",
+    logo: "/certificate%20logo/k.png",
   },
   {
     name: "FDCA FORM 28",
     url: "https://adityachemicals.com/wp-content/uploads/2025/07/Drug-Licence-FORM-28.pdf",
     subtitle: "State Drug Administration License",
+    logo: "/certificate%20logo/FDCA.png",
   },
   {
     name: "ISO 9001-2015",
     url: "https://adityachemicals.com/wp-content/uploads/2025/07/ISO-9001-2015.pdf",
     subtitle: "Quality Management System Standards",
+    logo: "/certificate%20logo/ISO.png",
   },
   {
     name: "Good Manufacturing Practices (GMP)",
     url: "https://adityachemicals.com/wp-content/uploads/2025/07/Good-Manufacturing-Practices-GMP.pdf",
     subtitle: "Certified Manufacturing Standard for APIs",
+    logo: "/certificate%20logo/GMP.png",
   },
   {
     name: "Good Laboratory Practices (GLP)",
     url: "https://adityachemicals.com/wp-content/uploads/2025/07/Good-Laboratory-Practices-GLP.pdf",
     subtitle: "Certified Quality Control Testing Standards",
+    logo: "/certificate%20logo/good-laboratory-practice-glp-grunge-rubber-stamp-white-background-vector-illustration-203672104.webp",
   },
   {
     name: "FSSAI",
     url: "https://adityachemicals.com/wp-content/uploads/2025/07/Food-Safety-and-Standards-Authority-of-India-FSSAI.pdf",
     subtitle: "Food Safety Standards Authority of India License",
+    logo: "/certificate%20logo/FSSAI_logo.png",
   },
   {
     name: "Drug Licence FORM 25",
@@ -57,11 +66,13 @@ const certificatesList: Certificate[] = [
     name: "Food Safety System Certification 22000 (FSSC 22000)",
     url: "https://www.adityachemicals.com/wp-content/uploads/2025/10/FSSC-22000.pdf",
     subtitle: "Global Food Safety Initiative Standard",
+    logo: "/certificate%20logo/FSSC22000.png",
   },
   {
     name: "ICH Q7 Good Manufacturing Practices for APIs",
     url: "https://www.adityachemicals.com/wp-content/uploads/2025/12/SGS_ICH-Q7-GMP-for-APIs_IN2500001008_EN.pdf",
     subtitle: "SGS Certified Active Pharmaceutical Ingredient GMP",
+    logo: "/certificate%20logo/ICH.png",
   },
 ];
 
@@ -95,13 +106,23 @@ export default function CertificatesPage() {
                 key={idx}
                 className="bg-white p-6 rounded-2xl border border-surface-container-highest shadow-sm hover:shadow-md transition-shadow flex flex-col"
               >
-                <div className="space-y-3">
-                  <div className="w-10 h-10 rounded-lg bg-primary/5 text-primary flex items-center justify-center">
-                    <span className="material-symbols-outlined select-none">verified</span>
+                <div className="space-y-4">
+                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-primary/5 text-primary flex items-center justify-center relative overflow-hidden p-2 flex-shrink-0">
+                    {cert.logo ? (
+                      <Image
+                        src={cert.logo}
+                        alt={cert.name}
+                        fill
+                        className="object-contain p-1"
+                        sizes="(max-width: 768px) 80px, 96px"
+                      />
+                    ) : (
+                      <span className="material-symbols-outlined text-4xl md:text-5xl select-none">verified</span>
+                    )}
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-deep-navy">{cert.name}</h3>
-                    <p className="text-xs text-on-surface-variant font-medium mt-1">{cert.subtitle}</p>
+                    <p className="text-xs text-on-surface-variant font-medium mt-1 leading-relaxed">{cert.subtitle}</p>
                   </div>
                 </div>
               </div>
