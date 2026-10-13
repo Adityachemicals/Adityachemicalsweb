@@ -559,12 +559,6 @@ export default function ProductDetailView({ product, parentCat, subCat, region }
                 </div>
                 <span className="text-[9px] font-bold text-on-surface-variant uppercase">22000</span>
               </div>
-              <div className="flex flex-col items-center space-y-1 select-none hover:-translate-y-1 transition-transform duration-300">
-                <div className="w-14 h-14 relative flex items-center justify-center">
-                  <Image src="/logo-pda.svg" alt="PDA Member" fill className="object-contain" />
-                </div>
-                <span className="text-[9px] font-bold text-on-surface-variant uppercase">Member</span>
-              </div>
             </div>
           </div>
 
