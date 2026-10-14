@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { products, productCategories } from '@/data/products';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://www.adityachemicals.com';
+  const baseUrl = 'https://www.adityachemicals.in';
 
   // Static routes
   const staticRoutes = [

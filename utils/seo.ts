@@ -1,5 +1,5 @@
 export function getAlternates(slug: string, currentRegion: 'default' | 'us' | 'uk' | 'eu', hasRegional: boolean) {
-  const base = "https://www.adityachemicals.com";
+  const base = "https://www.adityachemicals.in";
   if (!hasRegional) {
     return {
       canonical: `${base}/products/${slug}`,

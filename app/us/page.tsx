@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description: "Aditya Chemicals US division supplies high-purity APIs, chelated minerals, and excipients in bulk. Local warehousing in Boca Raton, Florida for fast transit across the United States.",
   keywords: "chemical manufacturer USA, API manufacturing company USA, bulk chelated minerals supplier US, amino acids exporter USA, GMP certified factory USA, FDA registered chemical plant, USA chemical supplier, REACH registered chemical company, bulk excipients manufacturer USA, chelated minerals factory USA, zinc ascorbate manufacturer USA, glycine factory USA",
   alternates: {
-    canonical: "https://www.adityachemicals.com/us",
+    canonical: "https://www.adityachemicals.in/us",
   }
 };
 
@@ -29,15 +29,15 @@ export default function USHubPage() {
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "Aditya Chemicals USA",
-              "url": "https://www.adityachemicals.com/us",
-              "logo": "https://www.adityachemicals.com/logos/LOGO.png",
+              "url": "https://www.adityachemicals.in/us",
+              "logo": "https://www.adityachemicals.in/logos/LOGO.png",
               "description": "Aditya Chemicals is a leading global API & Chelated Minerals manufacturer. Operating under FDA registration & REACH compliance with localized warehousing in Boca Raton, Florida."
             },
             {
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "name": "Aditya Chemicals USA Warehouse",
-              "image": "https://www.adityachemicals.com/logos/LOGO.png",
+              "image": "https://www.adityachemicals.in/logos/LOGO.png",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "6550 E Roger Cir",

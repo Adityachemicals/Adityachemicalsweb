@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description: "Aditya Chemicals UK division supplies high-purity APIs, chelated minerals, and excipients in bulk. Fully compliant with BP standards and UK-REACH regulations.",
   keywords: "chemical manufacturer UK, API manufacturing company UK, bulk chelated minerals supplier UK, amino acids exporter UK, GMP certified factory UK, BP compliant chemical manufacturing, UK-REACH registered chemical company, bulk excipients manufacturer UK, pharma chemicals UK, manganese gluconate supplier UK",
   alternates: {
-    canonical: "https://www.adityachemicals.com/uk",
+    canonical: "https://www.adityachemicals.in/uk",
   }
 };
 
@@ -29,15 +29,15 @@ export default function UKHubPage() {
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "Aditya Chemicals UK",
-              "url": "https://www.adityachemicals.com/uk",
-              "logo": "https://www.adityachemicals.com/logos/LOGO.png",
+              "url": "https://www.adityachemicals.in/uk",
+              "logo": "https://www.adityachemicals.in/logos/LOGO.png",
               "description": "Aditya Chemicals is a leading global API & Chelated Minerals manufacturer, supplying high-purity chemicals to the United Kingdom under BP standard compliance."
             },
             {
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "name": "Aditya Chemicals Corporate Office",
-              "image": "https://www.adityachemicals.com/logos/LOGO.png",
+              "image": "https://www.adityachemicals.in/logos/LOGO.png",
               "telephone": "+91-79-26854545",
               "address": {
                 "@type": "PostalAddress",

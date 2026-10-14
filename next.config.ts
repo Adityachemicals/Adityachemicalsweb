@@ -18,6 +18,16 @@ const nextConfig: NextConfig = {
         hostname: "adityachemicals.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "www.adityachemicals.in",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "adityachemicals.in",
+        pathname: "/**",
+      },
     ],
   },
   async rewrites() {

@@ -14,13 +14,13 @@ export const metadata: Metadata = {
   description: "Aditya Chemicals is a leading GMP-certified API & bulk Chelated Minerals manufacturer. Supplying high-purity chemicals, excipients, and amino acids to the USA, UK, Europe, and globally. Operating under FDA registration & REACH compliance with localized warehousing in Boca Raton, Florida.",
   keywords: "chemical manufacturer, API manufacturing company, bulk chelated minerals supplier, amino acids exporter, GMP certified factory, FDA registered chemical plant, USA chemical supplier, Europe chemical exporter, UK compliant chemical manufacturing, chemical factory in USA, chemical factory in UK, chemical factory in Europe, REACH registered chemical company, bulk excipients manufacturer USA, pharma chemicals UK, chelated minerals factory Europe, zinc ascorbate manufacturer USA, manganese gluconate supplier UK, glycine factory Europe, essential amino acids bulk exporter, chemical factory, chemical industry, USA chemical factory, UK chemical factory, Europe chemical factory, USA chemical industry, UK chemical industry, Europe chemical industry",
   alternates: {
-    canonical: "https://www.adityachemicals.com",
+    canonical: "https://www.adityachemicals.in",
     languages: {
-      "en-US": "https://www.adityachemicals.com",
-      "en-GB": "https://www.adityachemicals.com",
-      "en-DE": "https://www.adityachemicals.com",
-      "en-NL": "https://www.adityachemicals.com",
-      "en-FR": "https://www.adityachemicals.com"
+      "en-US": "https://www.adityachemicals.in",
+      "en-GB": "https://www.adityachemicals.in",
+      "en-DE": "https://www.adityachemicals.in",
+      "en-NL": "https://www.adityachemicals.in",
+      "en-FR": "https://www.adityachemicals.in"
     }
   }
 };
@@ -36,8 +36,8 @@ export default function Home() {
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "Aditya Chemicals",
-              "url": "https://www.adityachemicals.com",
-              "logo": "https://www.adityachemicals.com/logos/LOGO.png",
+              "url": "https://www.adityachemicals.in",
+              "logo": "https://www.adityachemicals.in/logos/LOGO.png",
               "contactPoint": {
                 "@type": "ContactPoint",
                 "telephone": "+91-79-26854545",
@@ -51,7 +51,7 @@ export default function Home() {
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "name": "Aditya Chemicals Corporate Office",
-              "image": "https://www.adityachemicals.com/logos/LOGO.png",
+              "image": "https://www.adityachemicals.in/logos/LOGO.png",
               "telephone": "+91-79-26854545",
               "address": {
                 "@type": "PostalAddress",
@@ -72,7 +72,7 @@ export default function Home() {
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "name": "Aditya Chemicals USA Warehouse",
-              "image": "https://www.adityachemicals.com/logos/LOGO.png",
+              "image": "https://www.adityachemicals.in/logos/LOGO.png",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "6550 E Roger Cir",

@@ -19,7 +19,7 @@ const hankenGrotesk = Hanken_Grotesk({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.adityachemicals.com"),
+  metadataBase: new URL("https://www.adityachemicals.in"),
   title: {
     default: "Aditya Chemicals | GMP Certified API & Chelated Minerals Manufacturer",
     template: "%s | Aditya Chemicals"

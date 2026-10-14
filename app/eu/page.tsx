@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description: "Aditya Chemicals EU division supplies high-purity APIs, chelated minerals, and excipients in bulk. Fully compliant with EP standards and EU REACH registrations.",
   keywords: "chemical manufacturer Europe, API manufacturing company Europe, bulk chelated minerals supplier EU, amino acids exporter Europe, REACH registered chemical company, chelated minerals factory Europe, glycine factory Europe",
   alternates: {
-    canonical: "https://www.adityachemicals.com/eu",
+    canonical: "https://www.adityachemicals.in/eu",
   }
 };
 
@@ -29,15 +29,15 @@ export default function EUHubPage() {
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "Aditya Chemicals Europe",
-              "url": "https://www.adityachemicals.com/eu",
-              "logo": "https://www.adityachemicals.com/logos/LOGO.png",
+              "url": "https://www.adityachemicals.in/eu",
+              "logo": "https://www.adityachemicals.in/logos/LOGO.png",
               "description": "Aditya Chemicals is a leading global API & Chelated Minerals manufacturer, supplying high-purity chemicals to Europe under REACH compliance."
             },
             {
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "name": "Aditya Chemicals Corporate Office",
-              "image": "https://www.adityachemicals.com/logos/LOGO.png",
+              "image": "https://www.adityachemicals.in/logos/LOGO.png",
               "telephone": "+91-79-26854545",
               "address": {
                 "@type": "PostalAddress",

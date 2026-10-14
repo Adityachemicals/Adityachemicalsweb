@@ -78,7 +78,7 @@ export default function ProductDetailView({ product, parentCat, subCat, region }
     "@context": "https://schema.org",
     "@type": "Product",
     "name": product.name,
-    "image": `https://www.adityachemicals.com${product.imagePath}`,
+    "image": `https://www.adityachemicals.in${product.imagePath}`,
     "description": introText,
     "category": product.categoryTag,
     "mpn": product.casNumber,
@@ -122,7 +122,7 @@ export default function ProductDetailView({ product, parentCat, subCat, region }
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Aditya Chemicals USA Warehouse",
-      "image": "https://www.adityachemicals.com/logos/LOGO.png",
+      "image": "https://www.adityachemicals.in/logos/LOGO.png",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "6550 E Roger Cir",
@@ -138,7 +138,7 @@ export default function ProductDetailView({ product, parentCat, subCat, region }
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Aditya Chemicals Corporate Office",
-      "image": "https://www.adityachemicals.com/logos/LOGO.png",
+      "image": "https://www.adityachemicals.in/logos/LOGO.png",
       "telephone": "+91-79-26854545",
       "address": {
         "@type": "PostalAddress",

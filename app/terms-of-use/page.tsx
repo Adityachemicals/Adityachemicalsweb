@@ -23,12 +23,12 @@ export default function TermsOfUsePage() {
           <p>
             Our website address is:{" "}
             <a
-              href="https://www.adityachemicals.com"
+              href="https://www.adityachemicals.in"
               target="_blank"
               rel="noopener noreferrer"
               className="text-primary font-bold hover:underline"
             >
-              https://www.adityachemicals.com
+              https://www.adityachemicals.in
             </a>
           </p>
         </section>
