@@ -41,16 +41,19 @@ export const footerLinks = {
   manufacturingPlant: {
     title: "Manufacturing Plant",
     address: "24-25, Ajanta Industrial Estate, At. Vasna - Iyava, Tal. Sanand, Dist.: Ahmedabad - 382110, Gujarat, INDIA",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=24-25%2C+Ajanta+Industrial+Estate%2C+At.+Vasna+-+Iyava%2C+Tal.+Sanand%2C+Dist.%3A+Ahmedabad+-+382110%2C+Gujarat%2C+INDIA",
   },
   usaWarehouse: {
     title: "USA Warehouse",
     address: "6550 E Roger Cir, Boca Raton, FL 33487, USA",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=6550+E+Roger+Cir%2C+Boca+Raton%2C+FL+33487%2C+USA",
   },
   contact: {
     title: "Contact Us",
     phone: "079 2685 4545",
     email: "info@adityachemicals.com",
     address: "204, President Plaza, Nr. Thaltej Cross Road, S. G. Highway, Ahmedabad",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=204%2C+President+Plaza%2C+Nr.+Thaltej+Cross+Road%2C+S.+G.+Highway%2C+Ahmedabad",
   },
 };
 

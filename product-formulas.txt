@@ -1,0 +1,54 @@
+DL-Methionine : C₅H₁₁NO₂S
+L-Carnitine Fumarate : C₁₁H₁₉NO₇
+Glycine : C₂H₅NO₂
+L-Carnitine L-Tartrate : C₁₈H₃₆N₂O₁₂
+L-Arginine L-Aspartate : C₁₀H₂₁N₅O₆
+L-Carnitine Orotate : C₁₂H₁₉N₃O₇
+L-Carnitine L-Aspartate : C₇H₁₅NO₃·C₄H₇NO₄ or C₁₁H₂₂N₂O₇
+L-Lysine Monohydrochloride : C₆H₁₄N₂O₂·HCl
+Calcium L-5 Methyltetrahydrofolate : C₂₀H₂₃CaN₇O₆ – Anhydrous
+Riboflavin Sodium 5 - Phosphate : C₁₇H₂₀N₄NaO₉P – Anhydrous
+Riboflavin : C₁₇H₂₀N₄O₆
+Disodium Edetate : C₁₀H₁₄N₂Na₂O₈·2H₂O
+Boron Citrate : C₆H₅BO₇
+Magnesium Aspartate : C₈H₁₂MgN₂O₈·2H₂O
+Magnesium Bis Glycinate : C₄H₈MgN₂O₄
+Magnesium Citrate : C₁₂H₁₀Mg₃O₁₄
+Magnesium Creatine : C₈H₁₆MgN₆O₄
+Magnesium Gluconate : C₁₂H₂₂MgO₁₄
+Magnesium L-Pidolate : C₁₀H₁₂N₂O₆Mg
+Magnesium Lactate : C₆H₁₀MgO₆·2H₂O (dihydrate)
+Magnesium Malate : C₄H₄MgO₅
+Magnesium Orotate : C₁₀H₆MgN₄O₈
+Magnesium Succinate : C H MgO4 4 4
+Magnesium Taurinate/taurate : C₄H₁₂MgN₂O₆S₂
+Magnesium Fumarate : C H MgO4 2 4
+Creatine Malate : C₈H₁₅N₃O₇
+Creatine Gluconate : C₆H₁₁O₇·C₄H₁₀N₃O₂
+Creatine Citrate : C₁₀H₁₇N₃O₉
+Creatine Orotate : C₉H₁₃N₅O₆
+Ferrous Asparto Glycinate : C₆H₁₀FeN₂O₆
+Ferrous Bis Glycinate : C₄H₈FeN₂O₄
+Ferrous Lactate : C₆H₁₀FeO₆
+Ferrous Gluconate : C₁₂H₂₂FeO₁₄⋅2H₂O
+Sodium Ferric EDTA : C₁₀H₁₂N₂O₈FeNa·3H₂O
+Calcium Aspartate : (C₄H₅NO₄)₂Ca
+Calcium Bis Glycinate : C₄H₈CaN₂O₄
+Calcium Lactate Gluconate : C₉H₁₆CaO₁₀
+Calcium Citrate : C₁₂H₁₀Ca₃O₁₄.H₂O
+Calcium Malate : C₄H₄CaO₅
+Calcium Citrate Malate : Ca₃(C₆H₅O₇)₂· ₃CaC₄H₄O₅·₆H₂O
+Calcium Orotate : (C₅H₃O₄)₂·Ca
+Calcium Glycerophosphate : C₃H₇CaO₆P
+Zinc Bis Glycinate : C₄H₈N₂O₄Zn
+Zinc Citrate : C₁₂H₁₄O₁₆Zn₃
+Zinc Gluconate : C₁₂H₂₂O₁₄Zn
+Zinc Monomethionine : C₅H₁₁NO₆S₂Zn
+Potassium Magnesium Citrate : C₁₂H₁₀K₄MgO₁₄
+Potassium Citrate : C₆H₅K₃O₇·H₂O
+Potassium Gluconate : C₆H₁₁KO₇ – Anhydrous
+Potassium Magnesium Aspartate : C₈H₁₂MgN₂O₈·2H₂O
+Copper Bis Glycinate : C₄H₈CuN₂O₄
+Copper Gluconate : C₁₂H₂₂CuO₁₄
+Manganese Bis Glycinate : C₄H₈MnN₂O₄
+Manganese Gluconate : C₁₂H₂₂MnO₁₄

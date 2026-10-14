@@ -31,23 +31,35 @@ export default function Footer() {
             <h4 className="font-bold text-surface-bright uppercase text-xs tracking-wider select-none">
               {footerLinks.manufacturingPlant.title}
             </h4>
-            <div className="flex items-start gap-2 text-xs text-surface-variant/80 leading-relaxed">
-              <span className="material-symbols-outlined text-primary-fixed text-sm mt-0.5 select-none">
+            <a
+              href={footerLinks.manufacturingPlant.mapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start gap-2 text-xs text-surface-variant/80 hover:text-white leading-relaxed group transition-colors cursor-pointer"
+              title="Open Manufacturing Plant in Google Maps"
+            >
+              <span className="material-symbols-outlined text-primary-fixed text-sm mt-0.5 select-none group-hover:scale-110 transition-transform">
                 location_on
               </span>
-              <span>{footerLinks.manufacturingPlant.address}</span>
-            </div>
+              <span className="group-hover:underline">{footerLinks.manufacturingPlant.address}</span>
+            </a>
           </div>
           <div className="space-y-4">
             <h4 className="font-bold text-surface-bright uppercase text-xs tracking-wider select-none">
               {footerLinks.usaWarehouse.title}
             </h4>
-            <div className="flex items-start gap-2 text-xs text-surface-variant/80 leading-relaxed">
-              <span className="material-symbols-outlined text-primary-fixed text-sm mt-0.5 select-none">
+            <a
+              href={footerLinks.usaWarehouse.mapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start gap-2 text-xs text-surface-variant/80 hover:text-white leading-relaxed group transition-colors cursor-pointer"
+              title="Open USA Warehouse in Google Maps"
+            >
+              <span className="material-symbols-outlined text-primary-fixed text-sm mt-0.5 select-none group-hover:scale-110 transition-transform">
                 location_on
               </span>
-              <span>{footerLinks.usaWarehouse.address}</span>
-            </div>
+              <span className="group-hover:underline">{footerLinks.usaWarehouse.address}</span>
+            </a>
           </div>
         </div>
 
@@ -107,12 +119,18 @@ export default function Footer() {
                 {footerLinks.contact.email}
               </a>
             </div>
-            <div className="flex items-start gap-2 leading-relaxed">
-              <span className="material-symbols-outlined text-primary-fixed text-sm mt-0.5 select-none">
+            <a
+              href={footerLinks.contact.mapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start gap-2 leading-relaxed text-surface-variant/80 hover:text-white transition-colors group cursor-pointer"
+              title="Open Office Location in Google Maps"
+            >
+              <span className="material-symbols-outlined text-primary-fixed text-sm mt-0.5 select-none group-hover:scale-110 transition-transform">
                 location_on
               </span>
-              <span>{footerLinks.contact.address}</span>
-            </div>
+              <span className="group-hover:underline">{footerLinks.contact.address}</span>
+            </a>
           </div>
         </div>
 

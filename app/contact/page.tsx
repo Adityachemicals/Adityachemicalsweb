@@ -89,26 +89,44 @@ export default async function ContactPage({ searchParams }: PageProps) {
           </div>
 
           {/* Manufacturing Plant */}
-          <div className="bg-surface-container-low p-8 rounded-2xl border border-surface-container-highest space-y-4">
-            <h3 className="text-lg font-bold text-deep-navy flex items-center gap-2">
-              <span className="material-symbols-outlined text-primary select-none">factory</span>
-              Manufacturing Plant
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=24-25%2C+Ajanta+Industrial+Estate%2C+At.+Vasna+-+Iyava%2C+Tal.+Sanand%2C+Dist.%3A+Ahmedabad+-+382110%2C+Gujarat%2C+INDIA"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block bg-surface-container-low p-8 rounded-2xl border border-surface-container-highest space-y-4 hover:border-primary/50 hover:shadow-md transition-all group cursor-pointer"
+            title="Open Manufacturing Plant in Google Maps"
+          >
+            <h3 className="text-lg font-bold text-deep-navy flex items-center justify-between gap-2 group-hover:text-primary transition-colors">
+              <span className="flex items-center gap-2">
+                <span className="material-symbols-outlined text-primary select-none">factory</span>
+                Manufacturing Plant
+              </span>
+              <span className="material-symbols-outlined text-primary text-sm opacity-0 group-hover:opacity-100 transition-opacity">open_in_new</span>
             </h3>
-            <p className="text-on-surface-variant text-sm font-semibold leading-relaxed">
+            <p className="text-on-surface-variant text-sm font-semibold leading-relaxed group-hover:text-primary/90 transition-colors">
               24-25, Ajanta Industrial Estate, At. Vasna - Iyava, Tal. Sanand, Dist.: Ahmedabad - 382110, Gujarat, INDIA
             </p>
-          </div>
+          </a>
 
           {/* USA Warehouse */}
-          <div className="bg-surface-container-low p-8 rounded-2xl border border-surface-container-highest space-y-4">
-            <h3 className="text-lg font-bold text-deep-navy flex items-center gap-2">
-              <span className="material-symbols-outlined text-primary select-none">warehouse</span>
-              USA Warehouse
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=6550+E+Roger+Cir%2C+Boca+Raton%2C+FL+33487%2C+USA"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block bg-surface-container-low p-8 rounded-2xl border border-surface-container-highest space-y-4 hover:border-primary/50 hover:shadow-md transition-all group cursor-pointer"
+            title="Open USA Warehouse in Google Maps"
+          >
+            <h3 className="text-lg font-bold text-deep-navy flex items-center justify-between gap-2 group-hover:text-primary transition-colors">
+              <span className="flex items-center gap-2">
+                <span className="material-symbols-outlined text-primary select-none">warehouse</span>
+                USA Warehouse
+              </span>
+              <span className="material-symbols-outlined text-primary text-sm opacity-0 group-hover:opacity-100 transition-opacity">open_in_new</span>
             </h3>
-            <p className="text-on-surface-variant text-sm font-semibold leading-relaxed">
+            <p className="text-on-surface-variant text-sm font-semibold leading-relaxed group-hover:text-primary/90 transition-colors">
               6550 E Roger Cir, Boca Raton, FL 33487, USA
             </p>
-          </div>
+          </a>
         </div>
       </div>
 
