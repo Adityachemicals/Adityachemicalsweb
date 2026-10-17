@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useMemo } from "react";
 import Link from "next/link";
 import EventCountdown from "@/components/EventCountdown";
 import EventLogo from "@/components/EventLogo";
@@ -216,30 +216,28 @@ const allEvents: EventItem[] = [
   },
 ];
 
+function getPartitionedEvents() {
+  const now = new Date();
+
+  const upcomingList = allEvents
+    .filter((e) => {
+      const endDate = new Date(e.endDateISO || e.startDateISO || "1970-01-01");
+      return endDate >= now;
+    })
+    .sort((a, b) => new Date(a.startDateISO || 0).getTime() - new Date(b.startDateISO || 0).getTime());
+
+  const archiveList = allEvents
+    .filter((e) => {
+      const endDate = new Date(e.endDateISO || e.startDateISO || "1970-01-01");
+      return endDate < now;
+    })
+    .sort((a, b) => new Date(b.startDateISO || 0).getTime() - new Date(a.startDateISO || 0).getTime());
+
+  return { upcomingList, archiveList };
+}
+
 export default function EventsList() {
-  const [upcoming, setUpcoming] = useState<EventItem[]>([]);
-  const [archive, setArchive] = useState<EventItem[]>([]);
-
-  useEffect(() => {
-    const now = new Date();
-
-    const upcomingList = allEvents
-      .filter((e) => {
-        const endDate = new Date(e.endDateISO || e.startDateISO || "1970-01-01");
-        return endDate >= now;
-      })
-      .sort((a, b) => new Date(a.startDateISO || 0).getTime() - new Date(b.startDateISO || 0).getTime());
-
-    const archiveList = allEvents
-      .filter((e) => {
-        const endDate = new Date(e.endDateISO || e.startDateISO || "1970-01-01");
-        return endDate < now;
-      })
-      .sort((a, b) => new Date(b.startDateISO || 0).getTime() - new Date(a.startDateISO || 0).getTime());
-
-    setUpcoming(upcomingList);
-    setArchive(archiveList);
-  }, []);
+  const { upcomingList: upcoming, archiveList: archive } = useMemo(() => getPartitionedEvents(), []);
 
   return (
     <div className="space-y-16">
@@ -258,7 +256,7 @@ export default function EventsList() {
                 <div className="p-6 space-y-5">
                   {/* Logo & Country Row */}
                   <div className="flex justify-between items-center flex-wrap gap-2">
-                    <EventLogo type={event.type} />
+                    <EventLogo type={event.type} name={event.name} />
                     <div className="flex items-center gap-1.5">
                       {event.booth && (
                         <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-primary/10 text-primary rounded-full text-xs font-bold border border-primary/20 font-mono">
@@ -333,7 +331,7 @@ export default function EventsList() {
               <div className="p-6 space-y-5">
                 {/* Logo & Country Row */}
                 <div className="flex justify-between items-center">
-                  <EventLogo type={event.type} />
+                  <EventLogo type={event.type} name={event.name} />
                   <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-surface-container-low text-on-surface-variant rounded-full text-xs font-bold border border-surface-container-highest">
                     <span>{event.flag}</span>
                     <span>{event.country}</span>

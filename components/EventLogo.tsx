@@ -2,66 +2,110 @@ import React from "react";
 
 interface EventLogoProps {
   type: string;
+  name?: string;
   className?: string;
 }
 
-export default function EventLogo({ type, className = "" }: EventLogoProps) {
+export default function EventLogo({ type, name = "", className = "" }: EventLogoProps) {
+  const normalizedName = name.toLowerCase();
+
   switch (type) {
     case "cphi":
       return (
-        <svg viewBox="0 0 160 50" className={`h-7 w-auto ${className}`} fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M25 15C16.7157 15 10 21.7157 10 30C10 38.2843 16.7157 45 25 45C33.2843 45 40 38.2843 40 30" stroke="#009A44" strokeWidth="6" strokeLinecap="round" />
-          <circle cx="28" cy="22" r="6" fill="#003594" />
-          <text x="50" y="36" fill="#009A44" fontFamily="system-ui, sans-serif" fontWeight="900" fontSize="24">CPHI</text>
-        </svg>
+        <div className={`flex items-center h-8 md:h-9 ${className}`}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/event-logos/cphi.png"
+            alt="CPHI & PMEC India"
+            className="h-full w-auto max-w-[150px] object-contain object-left select-none"
+            loading="lazy"
+          />
+        </div>
       );
-    case "vitafoods":
+
+    case "vitafoods": {
+      let src = "/event-logos/vitafoods.png";
+      let alt = "Vitafoods";
+      if (normalizedName.includes("europe")) {
+        src = "/event-logos/vitafoods-europe.png";
+        alt = "Vitafoods Europe";
+      } else if (normalizedName.includes("india")) {
+        src = "/event-logos/vitafoods-india.png";
+        alt = "Vitafoods India";
+      } else if (normalizedName.includes("asia")) {
+        src = "/event-logos/vitafoods-asia.png";
+        alt = "Vitafoods Asia";
+      }
       return (
-        <svg viewBox="0 0 160 50" className={`h-7 w-auto ${className}`} fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="25" cy="25" r="16" fill="#0072CE" opacity="0.15" />
-          <path d="M25 10C25 10 33 18 33 25C33 32 25 40 25 40C25 40 17 32 17 25C17 18 25 10 25 10Z" fill="#0072CE" />
-          <text x="50" y="34" fill="#0072CE" fontFamily="system-ui, sans-serif" fontWeight="800" fontSize="18">Vitafoods</text>
-        </svg>
+        <div className={`flex items-center h-8 md:h-9 ${className}`}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={src}
+            alt={alt}
+            className="h-full w-auto max-w-[150px] object-contain object-left select-none"
+            loading="lazy"
+          />
+        </div>
       );
-    case "ift":
-      return (
-        <svg viewBox="0 0 160 50" className={`h-7 w-auto ${className}`} fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="10" y="10" width="30" height="30" rx="6" fill="#E87722" />
-          <text x="17" y="31" fill="#FFFFFF" fontFamily="system-ui, sans-serif" fontWeight="900" fontSize="16">IFT</text>
-          <text x="48" y="34" fill="#E87722" fontFamily="system-ui, sans-serif" fontWeight="900" fontSize="18">FIRST</text>
-        </svg>
-      );
-    case "fi":
-      return (
-        <svg viewBox="0 0 160 50" className={`h-7 w-auto ${className}`} fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="25" cy="25" r="16" fill="#00A3A6" />
-          <text x="18" y="32" fill="#FFFFFF" fontFamily="system-ui, sans-serif" fontWeight="800" fontSize="20">fi</text>
-          <text x="48" y="34" fill="#00A3A6" fontFamily="system-ui, sans-serif" fontWeight="800" fontSize="18">India</text>
-        </svg>
-      );
-    case "chemexpo":
-      return (
-        <svg viewBox="0 0 160 50" className={`h-7 w-auto ${className}`} fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M15 38L23 22V12H27V22L35 38C37 41 34 43 30 43H20C16 43 13 41 15 38Z" fill="#1E3A8A" />
-          <circle cx="25" cy="33" r="3" fill="#3B82F6" />
-          <circle cx="21" cy="27" r="2" fill="#3B82F6" />
-          <text x="45" y="34" fill="#1E3A8A" fontFamily="system-ui, sans-serif" fontWeight="800" fontSize="16">ChemExpo</text>
-        </svg>
-      );
+    }
+
     case "supplyside":
       return (
-        <svg viewBox="0 0 180 50" className={`h-7 w-auto ${className}`} fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="5" y="10" width="35" height="30" rx="4" fill="#8B5CF6" />
-          <path d="M17 18H28M17 25H28M17 32H25" stroke="#FFFFFF" strokeWidth="2.5" strokeLinecap="round" />
-          <text x="48" y="34" fill="#8B5CF6" fontFamily="system-ui, sans-serif" fontWeight="800" fontSize="16">SupplySide</text>
-        </svg>
+        <div className={`flex items-center h-8 md:h-9 ${className}`}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/event-logos/supplyside.png"
+            alt="SupplySide Global"
+            className="h-full w-auto max-w-[140px] object-contain object-left select-none"
+            loading="lazy"
+          />
+        </div>
       );
+
+    case "fi":
+      return (
+        <div className={`flex items-center h-8 md:h-9 ${className}`}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/event-logos/fi-india.png"
+            alt="Fi India"
+            className="h-full w-auto max-w-[110px] object-contain object-left select-none"
+            loading="lazy"
+          />
+        </div>
+      );
+
+    case "ift":
+      return (
+        <div className={`flex items-center h-7 md:h-8 ${className}`}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/event-logos/ift-first.svg"
+            alt="IFT FIRST"
+            className="h-full w-auto max-w-[130px] object-contain object-left select-none"
+            loading="lazy"
+          />
+        </div>
+      );
+
+    case "chemexpo":
+      return (
+        <div className={`flex items-center h-8 md:h-9 ${className}`}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/event-logos/chemexpo.png"
+            alt="ChemExpo India"
+            className="h-full w-auto max-w-[150px] object-contain object-left select-none"
+            loading="lazy"
+          />
+        </div>
+      );
+
     default:
       return (
-        <svg viewBox="0 0 160 50" className={`h-7 w-auto ${className}`} fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="25" cy="25" r="15" fill="#6B7280" />
-          <text x="48" y="34" fill="#6B7280" fontFamily="system-ui, sans-serif" fontWeight="800" fontSize="18">Event</text>
-        </svg>
+        <div className={`flex items-center h-8 md:h-9 ${className}`}>
+          <span className="text-sm font-bold text-deep-navy">{name || "Event"}</span>
+        </div>
       );
   }
 }

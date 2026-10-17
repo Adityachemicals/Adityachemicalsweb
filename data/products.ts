@@ -502,14 +502,6 @@ export const products: Product[] = [
     ]
   },
   {
-    "name": "Tetrasodium Edetate",
-    "slug": "tetrasodium-edetate",
-    "casNumber": "13235-36-4",
-    "categoryTag": "Excipients",
-    "parentCategorySlug": "excipients",
-    "imagePath": "/aditya chemicals images/Excipients/product card/Disodium Edetate.png"
-  },
-  {
     "name": "Boron Citrate",
     "slug": "boron-citrate",
     "casNumber": "74231-02-0",
@@ -535,14 +527,6 @@ export const products: Product[] = [
       "Nutrient Absorption: Enhances the absorption of other nutrients, which can be beneficial in multivitamin/mineral supplements.",
       "Enhanced Nutrient Bio-Availability: Works synergistically within multivitamin and mineral matrices to actively boost the absorption rates of neighboring nutrients."
     ]
-  },
-  {
-    "name": "Boron Glycinate",
-    "slug": "boron-glycinate",
-    "casNumber": "14281-83-5",
-    "categoryTag": "Excipients",
-    "parentCategorySlug": "excipients",
-    "imagePath": "/aditya chemicals images/Excipients/product card/Disodium Edetate.png"
   },
   {
     "name": "Magnesium Aspartate",
@@ -712,15 +696,6 @@ export const products: Product[] = [
       "Stable Elemental Yield: Delivers a highly reliable, premium 8.0% to 9.5 % elemental magnesium payload, ensuring exact dosing for high-end neurological and cognitive formulations.",
       "Ultimate Bioavailability Kinetics: Formulated to maximize cellular uptake, Magnesium Pidolate utilizes specialized active transport pathways to deliver superior and rapid absorption compared to traditional mineral salts."
     ]
-  },
-  {
-    "name": "Magnesium Glycerophosphate",
-    "slug": "magnesium-glycerophosphate",
-    "casNumber": "927-20-8",
-    "categoryTag": "Magnesium (Chelated Minerals)",
-    "parentCategorySlug": "minerals",
-    "subCategorySlug": "magnesium",
-    "imagePath": "/aditya chemicals images/Magnesium/product card/Magnesium Bis Glycinate.png"
   },
   {
     "name": "Magnesium Lactate",
@@ -1023,15 +998,6 @@ export const products: Product[] = [
       "Excellent Flowability & Compression: High-quality ferrous bisglycinate is manufactured with uniform particle size distribution. It features excellent free-flowing properties, making it highly efficient for high-speed tablet compression and automatic capsule filling without clogging machinery",
       "Food and Beverage Industry Fortification: Added to food and beverage products to enhance their iron content, especially in products aimed at populations prone to iron deficiency, such as infants, children, and women of childbearing age."
     ]
-  },
-  {
-    "name": "Ferrous L-Pidolate",
-    "slug": "ferrous-l-pidolate",
-    "casNumber": "113479-54-4",
-    "categoryTag": "Iron (Chelated Minerals)",
-    "parentCategorySlug": "minerals",
-    "subCategorySlug": "ferrous",
-    "imagePath": "/aditya chemicals images/Ferrous/product cards/Ferrous Bis Glycinate.png"
   },
   {
     "name": "Ferrous Bis Glycinate",
@@ -1432,15 +1398,6 @@ export const products: Product[] = [
     ]
   },
   {
-    "name": "Zinc L-Pidolate",
-    "slug": "zinc-l-pidolate",
-    "casNumber": "15454-75-8",
-    "categoryTag": "Zinc (Chelated Minerals)",
-    "parentCategorySlug": "minerals",
-    "subCategorySlug": "zinc",
-    "imagePath": "/aditya chemicals images/Zinc/product card/Zinc Bis Glycinate.png"
-  },
-  {
     "name": "Zinc Citrate",
     "slug": "zinc-citrate",
     "casNumber": "5990-32-9",
@@ -1467,15 +1424,6 @@ export const products: Product[] = [
       "Excellent Sensory Profile (Neutral Taste): Unlike other zinc sources with a harsh, metallic aftertaste, its smooth, neutral flavor makes it ideal for chewable gummies, lozenges, and animal feeds.",
       "High Zinc Content concentration: Containing roughly 31.3 % elemental zinc, its high concentration allows manufacturers to achieve effective therapeutic doses using less raw material."
     ]
-  },
-  {
-    "name": "Zinc Lactate",
-    "slug": "zinc-lactate",
-    "casNumber": "16039-53-5",
-    "categoryTag": "Zinc (Chelated Minerals)",
-    "parentCategorySlug": "minerals",
-    "subCategorySlug": "zinc",
-    "imagePath": "/aditya chemicals images/Zinc/product card/Zinc Lactate.png"
   },
   {
     "name": "Zinc Gluconate",
@@ -1534,33 +1482,6 @@ export const products: Product[] = [
       "Acne & Inflammation Management: This compound is ideal for prescription-grade dermatological tablets targeting severe acne, tissue repair, and chronic wound healing by efficiently supporting natural collagen synthesis.",
       "Orally Disintegrating Tablets (ODTs) & Melts: The mild, non-metallic profile of this chelate requires minimal flavor-masking, making it perfect for smooth, consumer-friendly chewable tablets, melts, and therapeutic throat lozenges."
     ]
-  },
-  {
-    "name": "Zinc L-Carnosine",
-    "slug": "zinc-l-carnosine",
-    "casNumber": "107667-60-7",
-    "categoryTag": "Zinc (Chelated Minerals)",
-    "parentCategorySlug": "minerals",
-    "subCategorySlug": "zinc",
-    "imagePath": "/aditya chemicals images/Zinc/product card/Zinc Bis Glycinate.png"
-  },
-  {
-    "name": "Zinc Orotate",
-    "slug": "zinc-orotate",
-    "casNumber": "60388-02-5",
-    "categoryTag": "Zinc (Chelated Minerals)",
-    "parentCategorySlug": "minerals",
-    "subCategorySlug": "zinc",
-    "imagePath": "/aditya chemicals images/Zinc/product card/Zinc Bis Glycinate.png"
-  },
-  {
-    "name": "Potassium Bis Glycinate",
-    "slug": "potassium-bis-glycinate",
-    "casNumber": "15708-41-6",
-    "categoryTag": "Potassium (Chelated Minerals)",
-    "parentCategorySlug": "minerals",
-    "subCategorySlug": "potassium",
-    "imagePath": "/aditya chemicals images/Potassium/product card/Potassium Magnesium Citrate.png"
   },
   {
     "name": "Potassium Magnesium Citrate",

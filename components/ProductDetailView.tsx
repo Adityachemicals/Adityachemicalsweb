@@ -382,12 +382,12 @@ export default function ProductDetailView({ product, parentCat, subCat, region }
                   <tbody>
                     <tr className="border-b border-surface-container-highest/60">
                       <td className="py-3.5 font-semibold text-deep-navy uppercase w-[40%]">Product Name</td>
-                      <td className="py-3.5 text-on-surface-variant font-bold">{product.name}</td>
+                      <td className="py-3.5 text-on-surface-variant font-medium">{product.name}</td>
                     </tr>
                     {product.details?.formula && (
                       <tr className="border-b border-surface-container-highest/60">
                         <td className="py-3.5 font-semibold text-deep-navy uppercase">Molecular Formula</td>
-                        <td className="py-3.5 text-on-surface-variant font-mono font-bold text-primary">{product.details.formula}</td>
+                        <td className="py-3.5 text-on-surface-variant font-medium text-primary">{product.details.formula}</td>
                       </tr>
                     )}
                     {product.specifications?.iupacName && (
@@ -399,25 +399,25 @@ export default function ProductDetailView({ product, parentCat, subCat, region }
                     {product.casNumber && (
                       <tr className="border-b border-surface-container-highest/60">
                         <td className="py-3.5 font-semibold text-deep-navy uppercase">CAS Registry No.</td>
-                        <td className="py-3.5 text-on-surface-variant font-mono font-bold">{product.casNumber}</td>
+                        <td className="py-3.5 text-on-surface-variant font-medium">{product.casNumber}</td>
                       </tr>
                     )}
                     {product.slug === "calcium-glycerophosphate" && (
                       <tr className="border-b border-surface-container-highest/60">
                         <td className="py-3.5 font-semibold text-deep-navy uppercase">EC / EINECS No.</td>
-                        <td className="py-3.5 text-on-surface-variant font-mono">248-328-5</td>
+                        <td className="py-3.5 text-on-surface-variant font-medium">248-328-5</td>
                       </tr>
                     )}
                     {product.details?.shelfLife && (
                       <tr className="border-b border-surface-container-highest/60">
                         <td className="py-3.5 font-semibold text-deep-navy uppercase">Shelf Life</td>
-                        <td className="py-3.5 text-on-surface-variant">{product.details.shelfLife}</td>
+                        <td className="py-3.5 text-on-surface-variant font-medium">{product.details.shelfLife}</td>
                       </tr>
                     )}
                     {product.details?.grade && (
                       <tr className="border-b border-surface-container-highest/60">
                         <td className="py-3.5 font-semibold text-deep-navy uppercase">Grades Available</td>
-                        <td className="py-3.5 text-on-surface-variant font-semibold text-primary">{product.details.grade}</td>
+                        <td className="py-3.5 text-on-surface-variant font-medium text-primary">{product.details.grade}</td>
                       </tr>
                     )}
                   </tbody>
@@ -529,33 +529,35 @@ export default function ProductDetailView({ product, parentCat, subCat, region }
                 {complianceText}
               </p>
             </div>
-            {/* Compliance Badges Container */}
+            {/* Compliance Badges Container — same logos as /certificates page */}
             <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 pt-2">
               <div className="flex flex-col items-center space-y-1 select-none hover:-translate-y-1 transition-transform duration-300">
-                <div className="w-14 h-14 relative flex items-center justify-center">
-                  <Image src="/logo-gmp.png" alt="GMP Certified" fill className="object-contain" />
+                <div className="w-16 h-16 relative flex items-center justify-center">
+                  <Image src="/certificate%20logo/GMP.png" alt="GMP Certified" fill className="object-contain" />
                 </div>
                 <span className="text-[9px] font-bold text-on-surface-variant uppercase">Certified</span>
               </div>
               <div className="flex flex-col items-center space-y-1 select-none hover:-translate-y-1 transition-transform duration-300">
-                <div className="w-14 h-14 relative flex items-center justify-center">
-                  <Image src="/ISO-logo.png" alt="ISO 9001:2015" fill className="object-contain" />
+                <div className="w-16 h-16 relative flex items-center justify-center">
+                  <Image src="/certificate%20logo/ISO.png" alt="ISO 9001:2015" fill className="object-contain" />
                 </div>
                 <span className="text-[9px] font-bold text-on-surface-variant uppercase">9001:2015</span>
               </div>
               <div className="flex flex-col items-center space-y-1 select-none hover:-translate-y-1 transition-transform duration-300">
-                <div className="w-14 h-14 relative flex items-center justify-center">
-                  <Image src="/logo-halal.avif" alt="Halal Certified" fill className="object-contain" />
+                <div className="w-16 h-16 relative flex items-center justify-center">
+                  <Image src="/certificate%20logo/HALAL.png" alt="Halal Certified" fill className="object-contain" />
                 </div>
                 <span className="text-[9px] font-bold text-on-surface-variant uppercase">Certified</span>
               </div>
               <div className="flex flex-col items-center space-y-1 select-none hover:-translate-y-1 transition-transform duration-300">
-                <div className="w-12 h-12 rounded-full bg-white border border-surface-container-highest flex items-center justify-center text-primary text-xs font-black shadow-sm">KOSHER</div>
+                <div className="w-16 h-16 relative flex items-center justify-center">
+                  <Image src="/certificate%20logo/k.png" alt="Kosher Certified" fill className="object-contain" />
+                </div>
                 <span className="text-[9px] font-bold text-on-surface-variant uppercase">Certified</span>
               </div>
               <div className="flex flex-col items-center space-y-1 select-none hover:-translate-y-1 transition-transform duration-300">
-                <div className="w-16 h-14 relative flex items-center justify-center">
-                  <Image src="/logo-fssc.svg" alt="FSSC 22000" fill className="object-contain" />
+                <div className="w-16 h-16 relative flex items-center justify-center">
+                  <Image src="/certificate%20logo/FSSC22000.png" alt="FSSC 22000" fill className="object-contain" />
                 </div>
                 <span className="text-[9px] font-bold text-on-surface-variant uppercase">22000</span>
               </div>
