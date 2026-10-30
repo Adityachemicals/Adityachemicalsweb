@@ -34,7 +34,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/cphi",
-        destination: "/IFT_Brochure.pdf",
+        destination: "/EXHIBITION BROCHURE - 14-10-2026 - USA-2.pdf",
       },
     ];
   },
