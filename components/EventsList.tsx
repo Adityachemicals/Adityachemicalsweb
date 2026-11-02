@@ -70,6 +70,7 @@ const allEvents: EventItem[] = [
     startDateISO: "2026-11-23T09:00:00",
     endDateISO: "2026-11-25T23:59:59",
     websiteUrl: "https://www.cphi.com/india/en/home.html",
+    booth: "2K26",
   },
   {
     date: "26-28 Aug 2026",
