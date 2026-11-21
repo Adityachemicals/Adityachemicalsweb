@@ -59,8 +59,8 @@ const allEvents: EventItem[] = [
   {
     date: "23-25 Nov 2026",
     name: "CPHI & PMEC India 2026",
-    venue: "India Expo Mart (IEML)",
-    location: "Greater Noida, Delhi NCR, India",
+    venue: "Yashobhoomi (India International Convention and Expo Center)",
+    location: "Delhi, India",
     country: "India",
     flag: "🇮🇳",
     logoText: "CPHI",
