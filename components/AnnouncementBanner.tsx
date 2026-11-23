@@ -43,7 +43,7 @@ export default function AnnouncementBanner() {
             Upcoming Exhibition: <strong>{upcomingEvent.name}</strong> ({upcomingEvent.country} {upcomingEvent.flag})
           </span>
         </Link>
-        <EventCountdown startDate={upcomingEvent.date} />
+        <EventCountdown startDate={upcomingEvent.date} variant="banner" />
         <Link href="/events" className="underline hidden lg:inline hover:text-white/80 transition-colors">
           Meet us there
         </Link>

@@ -4,9 +4,11 @@ import { useState, useEffect } from "react";
 
 interface CountdownProps {
   startDate: string;
+  variant?: "default" | "banner";
+  className?: string;
 }
 
-export default function EventCountdown({ startDate }: CountdownProps) {
+export default function EventCountdown({ startDate, variant = "default", className = "" }: CountdownProps) {
   const [timeLeft, setTimeLeft] = useState<{
     days: number;
     hours: number;
@@ -45,19 +47,34 @@ export default function EventCountdown({ startDate }: CountdownProps) {
 
   if (!mounted) {
     return (
-      <div className="flex gap-2">
-        <div className="h-9 w-10 bg-surface-container-high rounded animate-pulse"></div>
-        <div className="h-9 w-10 bg-surface-container-high rounded animate-pulse"></div>
-        <div className="h-9 w-10 bg-surface-container-high rounded animate-pulse"></div>
-        <div className="h-9 w-10 bg-surface-container-high rounded animate-pulse"></div>
+      <div className={`flex gap-2 ${className}`}>
+        <div className={`h-9 w-10 ${variant === "banner" ? "bg-white/20" : "bg-surface-container-high"} rounded animate-pulse`}></div>
+        <div className={`h-9 w-10 ${variant === "banner" ? "bg-white/20" : "bg-surface-container-high"} rounded animate-pulse`}></div>
+        <div className={`h-9 w-10 ${variant === "banner" ? "bg-white/20" : "bg-surface-container-high"} rounded animate-pulse`}></div>
+        <div className={`h-9 w-10 ${variant === "banner" ? "bg-white/20" : "bg-surface-container-high"} rounded animate-pulse`}></div>
       </div>
     );
   }
 
   if (!timeLeft) {
+    if (variant === "banner") {
+      return (
+        <span className={`inline-flex items-center gap-1.5 px-3 py-1 bg-white text-deep-navy border border-white/80 rounded-full text-xs font-bold select-none shadow-sm ${className}`}>
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          Event is Live
+        </span>
+      );
+    }
+
     return (
-      <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full text-xs font-bold select-none animate-pulse">
-        <span className="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+      <span className={`inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-full text-xs font-bold select-none ${className}`}>
+        <span className="relative flex h-2 w-2">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+        </span>
         Event is Live
       </span>
     );
