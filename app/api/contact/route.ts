@@ -14,7 +14,7 @@ export async function POST(req: Request) {
 
     const { data, error } = await resend.emails.send({
       from: "Aditya Chemicals <onboarding@resend.dev>", // You should replace this with your verified domain in production
-      to: "info@adityachemicals.com",
+      to: "info@adityachemicals.in",
       subject: `New Inquiry from ${name} - ${company || "Individual"}`,
       html: `
         <h2>New Contact Inquiry</h2>
