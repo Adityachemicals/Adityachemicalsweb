@@ -533,31 +533,31 @@ export default function ProductDetailView({ product, parentCat, subCat, region }
             <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 pt-2">
               <div className="flex flex-col items-center space-y-1 select-none hover:-translate-y-1 transition-transform duration-300">
                 <div className="w-16 h-16 relative flex items-center justify-center">
-                  <Image src="/certificate%20logo/GMP.png" alt="GMP Certified" fill className="object-contain" />
+                  <Image src="/certificate-logo/GMP.png" alt="GMP Certified" fill className="object-contain" />
                 </div>
                 <span className="text-[9px] font-bold text-on-surface-variant uppercase">Certified</span>
               </div>
               <div className="flex flex-col items-center space-y-1 select-none hover:-translate-y-1 transition-transform duration-300">
                 <div className="w-16 h-16 relative flex items-center justify-center">
-                  <Image src="/certificate%20logo/ISO.png" alt="ISO 9001:2015" fill className="object-contain" />
+                  <Image src="/certificate-logo/ISO.png" alt="ISO 9001:2015" fill className="object-contain" />
                 </div>
                 <span className="text-[9px] font-bold text-on-surface-variant uppercase">9001:2015</span>
               </div>
               <div className="flex flex-col items-center space-y-1 select-none hover:-translate-y-1 transition-transform duration-300">
                 <div className="w-16 h-16 relative flex items-center justify-center">
-                  <Image src="/certificate%20logo/HALAL.png" alt="Halal Certified" fill className="object-contain" />
+                  <Image src="/certificate-logo/HALAL.png" alt="Halal Certified" fill className="object-contain" />
                 </div>
                 <span className="text-[9px] font-bold text-on-surface-variant uppercase">Certified</span>
               </div>
               <div className="flex flex-col items-center space-y-1 select-none hover:-translate-y-1 transition-transform duration-300">
                 <div className="w-16 h-16 relative flex items-center justify-center">
-                  <Image src="/certificate%20logo/k.png" alt="Kosher Certified" fill className="object-contain" />
+                  <Image src="/certificate-logo/k.png" alt="Kosher Certified" fill className="object-contain" />
                 </div>
                 <span className="text-[9px] font-bold text-on-surface-variant uppercase">Certified</span>
               </div>
               <div className="flex flex-col items-center space-y-1 select-none hover:-translate-y-1 transition-transform duration-300">
                 <div className="w-16 h-16 relative flex items-center justify-center">
-                  <Image src="/certificate%20logo/FSSC22000.png" alt="FSSC 22000" fill className="object-contain" />
+                  <Image src="/certificate-logo/FSSC22000.png" alt="FSSC 22000" fill className="object-contain" />
                 </div>
                 <span className="text-[9px] font-bold text-on-surface-variant uppercase">22000</span>
               </div>
