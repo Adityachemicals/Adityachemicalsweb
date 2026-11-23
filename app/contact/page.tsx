@@ -81,8 +81,8 @@ export default async function ContactPage({ searchParams }: PageProps) {
               </div>
               <div>
                 <span className="font-semibold block text-xs uppercase text-deep-navy/70">Sales & Support</span>
-                <a href="mailto:sales01@adityachemicals.com" className="text-primary font-bold hover:underline">
-                  sales01@adityachemicals.com
+                <a href="mailto:sales01@adityachemicals.in" className="text-primary font-bold hover:underline">
+                  sales01@adityachemicals.in
                 </a>
               </div>
             </div>
